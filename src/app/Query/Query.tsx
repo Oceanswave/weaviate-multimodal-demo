@@ -6,13 +6,15 @@ import { GetMultiModalTextQuery, useGetMultiModalTextQuery, GetMultiModalImageQu
 
 import Result from "./Result";
 
-export default function Demo() {
+type QueryProps = {
+  weaviateUrl: string;
+}
+
+export default function Query({ weaviateUrl }: QueryProps) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchImage, setSearchImage] = useState("");
   const [showMore, setShowMore] = useState(false);
   const fileInput = useRef<HTMLInputElement>(null);
-
-  const weaviateUrl = process.env.WEAVIATE_GRAPHQL_URL || "";
 
   const { isLoading: isLoadingTextResults, isError: isErrorTextResults, data: textData, error: errorText, refetch: queryText } = useGetMultiModalTextQuery<GetMultiModalTextQuery, { message: string }>(
     {
@@ -78,14 +80,14 @@ export default function Demo() {
       setSearchImage("");
       return;
     }
-    
+
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
       // get rid of the mimetype
       const base64 = reader.result?.toString().split(",")[1];
       setSearchImage(base64 || "");
-    }    
+    }
   };
 
   const handleSubmit = async () => {
@@ -119,7 +121,7 @@ export default function Demo() {
             className="input input-bordered flex-1 resize-none"
             type="text"
             placeholder="Search for images"
-            value = {searchTerm}
+            value={searchTerm}
             onChange={handleSearchTermChange}
             onKeyUp={(e) => {
               if (e.key === 'Enter') {
@@ -135,7 +137,7 @@ export default function Demo() {
           )}
         </div>
         <div className="relative flex items-stretch m-8">
-          <input ref={fileInput} type="file" className="file-input file-input-bordered file-input-lg flex-1" onChange={handleSearchImageChange}/>
+          <input ref={fileInput} type="file" className="file-input file-input-bordered file-input-lg flex-1" onChange={handleSearchImageChange} />
           {isLoading && <button className="btn btn-square loading"></button>}
           {!isLoading && (
             <button className="btn btn-primary" onClick={handleSubmitImage} disabled={!searchImage}>
@@ -157,7 +159,7 @@ export default function Demo() {
           {firstResult && <Result multiModal={firstResult} />}
         </div>
         <div className="relative flex justify-center m-8">
-        {data && (
+          {data && (
             <div className="control" style={{ paddingTop: "20px" }}>
               <input
                 type="button"
@@ -170,7 +172,7 @@ export default function Demo() {
           )}
         </div>
         <div className="relative flex justify-center flex-wrap m-8 gap-y-12 gap-x-12">
-          { data && showMore && restResults && restResults.map((result) => (
+          {data && showMore && restResults && restResults.map((result) => (
             <Result key={result?._additional?.id} multiModal={result || {}} />
           ))}
         </div>

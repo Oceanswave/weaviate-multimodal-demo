@@ -8,9 +8,10 @@ import Query from "./Query/Query";
 const queryClient = new QueryClient();
 
 const Home: NextPage = () => {
+  const weaviateUrl = process.env.NEXT_PUBLIC_WEAVIATE_GRAPHQL_URL || "";
   return (
     <QueryClientProvider client={queryClient}>
-      <Query />
+      <Query weaviateUrl={weaviateUrl} />
     </QueryClientProvider>
   );
 };
