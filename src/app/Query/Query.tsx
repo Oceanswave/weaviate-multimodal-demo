@@ -130,6 +130,28 @@ export default function Query({ weaviateUrl }: QueryProps) {
         <div className="mt-5 text-center">
           <h1 className="text-4xl">Multi-Modal Image/Text</h1>
         </div>
+        <p className="pt-5">
+          This example demonstrates how users can search for images by providing
+          either image or text as an input. Underneath the scenes, a new type of
+          database, a Vector Database, is utilized that is capable of storing
+          embeddings and performing vector similarity searches.
+        </p>
+        <p className="pt-5">
+          The images in the dataset are pulled from Amazon and were added to the
+          vector database without any description or information about the
+          image. CLIP is used as an encoder.
+        </p>
+        <p className="pt-5">
+          CLIP is a neural network that can be used to encode images and text
+          into a vector space. The vectors are then stored in the vector
+          database. The vector database is capable of performing vector
+          similarity searches. This means that the vector database can find
+          images that are similar to a given image or text.
+        </p>
+        <p className="pb-5 pt-5">
+          Either enter text and press the &apos;search with text &apos; button
+          -or- upload an image and press the &apos;search with image&apos;.
+        </p>
         <div className="relative flex items-stretch">
           <input
             className="input-bordered input flex-1 resize-none"
@@ -150,7 +172,7 @@ export default function Query({ weaviateUrl }: QueryProps) {
               onClick={handleSubmit}
               disabled={!searchTerm}
             >
-              Submit
+              Search with Text
             </button>
           )}
         </div>
@@ -170,7 +192,7 @@ export default function Query({ weaviateUrl }: QueryProps) {
               onClick={handleSubmitImage}
               disabled={!searchImage}
             >
-              Submit
+              Search with Image
             </button>
           )}
         </div>
