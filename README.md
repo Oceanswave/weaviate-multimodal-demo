@@ -9,3 +9,5 @@ GraphQL-Codegen is used to generate types for the GraphQL queries against the We
 
 
 Follow the instructions in Weviate's clip-multi-modal-text-image-search demo to create the necessary schema with your own data.
+
+The WEAVIATE_GRAPHQL_URL envvar will be used to indicate the URL of the Weaviate instance.
