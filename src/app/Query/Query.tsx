@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import { GetMultiModalTextQuery, useGetMultiModalTextQuery, GetMultiModalImageQuery, useGetMultiModalImageQuery } from "~/graphql/weaviate";
 
@@ -10,6 +10,7 @@ export default function Demo() {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchImage, setSearchImage] = useState("");
   const [showMore, setShowMore] = useState(false);
+  const fileInput = useRef<HTMLInputElement>(null);
 
   const { isLoading: isLoadingTextResults, isError: isErrorTextResults, data: textData, error: errorText, refetch: queryText } = useGetMultiModalTextQuery<GetMultiModalTextQuery, { message: string }>(
     {
@@ -78,11 +79,17 @@ export default function Demo() {
   };
 
   const handleSubmit = async () => {
+    setSearchImage("");
+    if (fileInput.current)
+      fileInput.current.value = "";
     setShowMore(false);
     queryText();
   };
 
   const handleSubmitImage = async () => {
+    setSearchTerm("");
+    if (fileInput.current)
+      fileInput.current.value = "";
     setShowMore(false);
     queryImage();
   };
@@ -113,7 +120,7 @@ export default function Demo() {
           )}
         </div>
         <div className="relative flex items-stretch m-8">
-          <input type="file" className="file-input file-input-bordered file-input-lg flex-1" onChange={handleSearchImageChange}/>
+          <input ref={fileInput} type="file" className="file-input file-input-bordered file-input-lg flex-1" onChange={handleSearchImageChange}/>
           {isLoading && <button className="btn btn-square loading"></button>}
           {!isLoading && (
             <button className="btn btn-primary" onClick={handleSubmitImage}>
@@ -121,6 +128,13 @@ export default function Demo() {
             </button>
           )}
         </div>
+        {searchImage && (
+          <div className="relative flex justify-center m-8">
+            <div className="card w-96 h-96 bg-lime-500 shadow-xl">
+              <figure><img className="max-h-full" src={"data:image/jpg;base64," + searchImage} alt="Search Image" /></figure>
+            </div>
+          </div>
+        )}
         <div className="relative flex justify-center m-8">
           {firstResult && <Result multiModal={firstResult} />}
         </div>
