@@ -1,0 +1,13 @@
+overwrite: true
+schema: http://desktop-k4t6j4j.cuttlefish-lime.ts.net:8080/v1/graphql
+documents: 'src/**/*.graphql'
+generates:
+  src/graphql/weaviate.ts:
+    hooks:
+        afterOneFileWrite:
+          - eslint --fix
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-query":
+      - "fragment-matcher"

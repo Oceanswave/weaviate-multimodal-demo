@@ -1,0 +1,16 @@
+query getMultiModalText($searchTerm: String) {
+    Get {
+        MultiModal(
+            nearText: {
+                concepts: [$searchTerm]
+            }
+         ) {
+            filename
+            image
+            _additional {
+                id
+                certainty
+            }
+        }
+    }
+}

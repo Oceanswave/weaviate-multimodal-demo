@@ -1,0 +1,16 @@
+query getMultiModalImage($image: String!) {
+    Get {
+        MultiModal(
+            nearImage: {
+                image: $image
+            }
+         ) {
+            filename
+            image
+            _additional {
+                id
+                certainty
+            }
+        }
+    }
+}
