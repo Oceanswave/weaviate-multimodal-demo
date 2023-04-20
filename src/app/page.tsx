@@ -8,7 +8,9 @@ import Query from "./Query/Query";
 const queryClient = new QueryClient();
 
 const Home: NextPage = () => {
-  const weaviateUrl = process.env.NEXT_PUBLIC_WEAVIATE_GRAPHQL_URL || "http://localhost:8080/v1/graphql";
+  const weaviateUrl =
+    process.env.NEXT_PUBLIC_WEAVIATE_GRAPHQL_URL ||
+    "http://localhost:8080/v1/graphql";
   return (
     <QueryClientProvider client={queryClient}>
       <Query weaviateUrl={weaviateUrl} />
