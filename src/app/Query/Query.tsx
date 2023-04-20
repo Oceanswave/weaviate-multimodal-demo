@@ -104,6 +104,10 @@ export default function Demo() {
     queryImage();
   };
 
+  if (!weaviateUrl) {
+    return <span>Missing WEAVIATE_GRAPHQL_URL environment variable</span>
+  }
+
   return (
     <div className="grid">
       <div className="bg-base-300">
