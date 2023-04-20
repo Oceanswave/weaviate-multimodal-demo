@@ -60,7 +60,15 @@ export default function Demo() {
     return <span>Error: {error.message}</span>
   }
 
+  const handleSearchTermChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (fileInput.current)
+      fileInput.current.value = "";
+    setSearchImage("");
+    setSearchTerm(e.target.value);
+  };
+
   const handleSearchImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm("");
 
     // convert to base64
     const file = e.target.files?.[0];
@@ -105,7 +113,8 @@ export default function Demo() {
             className="input input-bordered flex-1 resize-none"
             type="text"
             placeholder="Search for images"
-            onChange={(e) => setSearchTerm(e.target.value)}
+            value = {searchTerm}
+            onChange={handleSearchTermChange}
             onKeyUp={(e) => {
               if (e.key === 'Enter') {
                 handleSubmit();
@@ -114,7 +123,7 @@ export default function Demo() {
           />
           {isLoading && <button className="btn btn-square loading"></button>}
           {!isLoading && (
-            <button className="btn btn-primary" onClick={handleSubmit}>
+            <button className="btn btn-primary" onClick={handleSubmit} disabled={!searchTerm}>
               Submit
             </button>
           )}
@@ -123,7 +132,7 @@ export default function Demo() {
           <input ref={fileInput} type="file" className="file-input file-input-bordered file-input-lg flex-1" onChange={handleSearchImageChange}/>
           {isLoading && <button className="btn btn-square loading"></button>}
           {!isLoading && (
-            <button className="btn btn-primary" onClick={handleSubmitImage}>
+            <button className="btn btn-primary" onClick={handleSubmitImage} disabled={!searchImage}>
               Submit
             </button>
           )}
