@@ -148,6 +148,21 @@ export default function Query({ weaviateUrl }: QueryProps) {
           similarity searches. This means that the vector database can find
           images that are similar to a given image or text.
         </p>
+        <p className="pt-5">
+          This is just one example of how Vector Databases can be used. Any data
+          that can be transformed into a vector can be stored in a vector
+          database and queried using vector similarity searches. Some other
+          posibilities are:
+          <ul className="list-disc pl-10">
+            <li>
+              Semantic-based information retrieval - e.g. searching for a
+              question in a database of previously defined questions returns the
+              most relevant answer, even if the question is not exactly the same
+            </li>
+            <li>Classifying images or text - e.g. auto tagging and labeling</li>
+            <li>Providing a recommendations engine.</li>
+          </ul>
+        </p>
         <p className="pb-5 pt-5">
           Either enter text and press the &apos;search with text &apos; button
           -or- upload an image and press the &apos;search with image&apos;.
