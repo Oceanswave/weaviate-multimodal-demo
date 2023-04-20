@@ -12,9 +12,11 @@ export default function Demo() {
   const [showMore, setShowMore] = useState(false);
   const fileInput = useRef<HTMLInputElement>(null);
 
+  const weaviateUrl = process.env.WEAVIATE_GRAPHQL_URL || "";
+
   const { isLoading: isLoadingTextResults, isError: isErrorTextResults, data: textData, error: errorText, refetch: queryText } = useGetMultiModalTextQuery<GetMultiModalTextQuery, { message: string }>(
     {
-      endpoint: "http://desktop-k4t6j4j.cuttlefish-lime.ts.net:8080/v1/graphql",
+      endpoint: weaviateUrl,
       fetchParams: {
         headers: {
           "Content-Type": "application/json",
@@ -33,7 +35,7 @@ export default function Demo() {
 
   const { isLoading: isLoadingImageResults, isError: isErrorImageResults, data: imageData, error: errorImage, refetch: queryImage } = useGetMultiModalImageQuery<GetMultiModalImageQuery, { message: string }>(
     {
-      endpoint: "http://desktop-k4t6j4j.cuttlefish-lime.ts.net:8080/v1/graphql",
+      endpoint: weaviateUrl,
       fetchParams: {
         headers: {
           "Content-Type": "application/json",
