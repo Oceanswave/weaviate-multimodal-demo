@@ -6,7 +6,7 @@ type ResultProps = {
 
 export default function Result({ multiModal }: ResultProps) {
   return (
-    <div className="card w-96 h-96 bg-base-100 shadow-xl">
+    <div className="card w-64 h-64 sm:w-96 sm:h-96 bg-base-100 shadow-xl">
       <figure><img className="max-h-full" src={"data:image/jpg;base64," + multiModal?.image} alt="Result" /></figure>
       <div className="card-body items-center">
         <h2 className="card-title">Certainty: {((multiModal?._additional?.certainty || 0) * 100).toFixed(2)} %</h2>

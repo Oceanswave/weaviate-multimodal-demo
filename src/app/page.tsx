@@ -1,7 +1,7 @@
 "use client";
 
 import type { NextPage } from "next";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import Query from "./Query/Query";
 

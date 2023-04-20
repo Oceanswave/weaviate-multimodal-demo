@@ -16,7 +16,7 @@ export default function Query({ weaviateUrl }: QueryProps) {
   const [showMore, setShowMore] = useState(false);
   const fileInput = useRef<HTMLInputElement>(null);
 
-  const { isLoading: isLoadingTextResults, isError: isErrorTextResults, data: textData, error: errorText, refetch: queryText } = useGetMultiModalTextQuery<GetMultiModalTextQuery, { message: string }>(
+  const { fetchStatus: textFetchStatus, isError: isErrorTextResults, data: textData, error: errorText, refetch: queryText } = useGetMultiModalTextQuery<GetMultiModalTextQuery, { message: string }>(
     {
       endpoint: weaviateUrl,
       fetchParams: {
@@ -35,7 +35,7 @@ export default function Query({ weaviateUrl }: QueryProps) {
     }
   );
 
-  const { isLoading: isLoadingImageResults, isError: isErrorImageResults, data: imageData, error: errorImage, refetch: queryImage } = useGetMultiModalImageQuery<GetMultiModalImageQuery, { message: string }>(
+  const { fetchStatus: imageFetchStatus, isError: isErrorImageResults, data: imageData, error: errorImage, refetch: queryImage } = useGetMultiModalImageQuery<GetMultiModalImageQuery, { message: string }>(
     {
       endpoint: weaviateUrl,
       fetchParams: {
@@ -56,7 +56,7 @@ export default function Query({ weaviateUrl }: QueryProps) {
 
   const data = textData || imageData;
   const error = errorImage || errorText;
-  const isLoading = isLoadingTextResults || isLoadingImageResults;
+  const isLoading = imageFetchStatus !== "idle" || textFetchStatus !== "idle";
   const firstResult = data?.Get?.MultiModal?.[0];
   const restResults = data?.Get?.MultiModal?.slice(1);
 
@@ -111,12 +111,12 @@ export default function Query({ weaviateUrl }: QueryProps) {
   }
 
   return (
-    <div className="grid">
-      <div className="bg-base-300">
+    <div className="grid h-full">
+      <div className="bg-base-300 p-8">
         <div className="text-center mt-5">
           <h1 className="text-4xl">Multi-Modal Image/Text</h1>
         </div>
-        <div className="relative flex items-stretch m-8">
+        <div className="relative flex items-stretch">
           <input
             className="input input-bordered flex-1 resize-none"
             type="text"
@@ -136,9 +136,9 @@ export default function Query({ weaviateUrl }: QueryProps) {
             </button>
           )}
         </div>
-        <div className="relative flex items-stretch m-8">
-          <input ref={fileInput} type="file" className="file-input file-input-bordered file-input-lg flex-1" onChange={handleSearchImageChange} />
-          {isLoading && <button className="btn btn-square loading"></button>}
+        <div className="relative flex items-stretch">
+          <input ref={fileInput} type="file" className="file-input-xs sm:file-input-md file-input-bordered flex-1 resize-none" onChange={handleSearchImageChange} />
+          {isLoading && <button className="btn btn-square loading">&nbsp;</button>}
           {!isLoading && (
             <button className="btn btn-primary" onClick={handleSubmitImage} disabled={!searchImage}>
               Submit
@@ -146,28 +146,27 @@ export default function Query({ weaviateUrl }: QueryProps) {
           )}
         </div>
         {searchImage && (
-          <div className="relative flex justify-center m-8">
-            <div className="card w-96 h-96 bg-lime-500 shadow-xl">
-              <figure><img className="max-h-full" src={"data:image/jpg;base64," + searchImage} alt="Search Image" /></figure>
+          <div className="relative flex justify-center pb-4">
+            <div className="card w-64 h-64 sm:w-96 sm:h-96 bg-lime-500 shadow-xl">
+              <figure className="px-10 pt-10"><img className="max-h-full" src={"data:image/jpg;base64," + searchImage} alt="Search Image" /></figure>
               <div className="card-body items-center">
                 <h2 className="card-title text-black">Input Image</h2>
               </div>
             </div>
           </div>
         )}
-        <div className="relative flex justify-center m-8">
+        <div className="relative flex justify-center">
           {firstResult && <Result multiModal={firstResult} />}
         </div>
-        <div className="relative flex justify-center m-8">
+        <div className="relative flex justify-center">
           {data && (
-            <div className="control" style={{ paddingTop: "20px" }}>
-              <input
-                type="button"
-                className="btn btn-secondary"
-                value={showMore ? "Show less" : "Show more"}
+            <div className="pt-20px">
+              <button
+                className="btn btn-secondary bg-pink-600"
                 onClick={() => setShowMore(!showMore)}
-                style={{ backgroundColor: "#fa0171" }}
-              />
+              >
+                {showMore ? "Show less" : "Show more"}
+              </button>
             </div>
           )}
         </div>
