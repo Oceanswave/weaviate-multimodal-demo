@@ -141,6 +141,9 @@ export default function Demo() {
           <div className="relative flex justify-center m-8">
             <div className="card w-96 h-96 bg-lime-500 shadow-xl">
               <figure><img className="max-h-full" src={"data:image/jpg;base64," + searchImage} alt="Search Image" /></figure>
+              <div className="card-body items-center">
+                <h2 className="card-title text-black">Input Image</h2>
+              </div>
             </div>
           </div>
         )}
