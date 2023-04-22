@@ -45,6 +45,231 @@ export type Scalars = {
   Float: number;
 };
 
+export type AggregateJeopardyQuestion = {
+  __typename?: "AggregateJeopardyQuestion";
+  /** Aggregate this property"air_date" */
+  air_date?: Maybe<AggregateJeopardyQuestionair_DateObj>;
+  /** Aggregate this property"answer" */
+  answer?: Maybe<AggregateJeopardyQuestionanswerObj>;
+  /** Aggregate this property"category" */
+  category?: Maybe<AggregateJeopardyQuestioncategoryObj>;
+  /** Indicates the group of returned data */
+  groupedBy?: Maybe<AggregateJeopardyQuestionGroupedByObj>;
+  /** An object used to Get Meta information about Objects on a local Weaviate */
+  meta?: Maybe<AggregateJeopardyQuestionMetaObject>;
+  /** Aggregate this property"question" */
+  question?: Maybe<AggregateJeopardyQuestionquestionObj>;
+  /** Aggregate this property"round" */
+  round?: Maybe<AggregateJeopardyQuestionroundObj>;
+  /** Aggregate this property"show_number" */
+  show_number?: Maybe<AggregateJeopardyQuestionshow_NumberObj>;
+  /** Aggregate this property"value" */
+  value?: Maybe<AggregateJeopardyQuestionvalueObj>;
+};
+
+/** An object containing the path and value of the grouped property */
+export type AggregateJeopardyQuestionGroupedByObj = {
+  __typename?: "AggregateJeopardyQuestionGroupedByObj";
+  /** The path of the grouped property */
+  path?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  /** The value of the grouped property */
+  value?: Maybe<Scalars["String"]>;
+};
+
+export type AggregateJeopardyQuestionMetaObject = {
+  __typename?: "AggregateJeopardyQuestionMetaObject";
+  count?: Maybe<Scalars["Int"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateJeopardyQuestionair_DateObj = {
+  __typename?: "AggregateJeopardyQuestionair_dateObj";
+  /** The total amount of found instances for this property */
+  count?: Maybe<Scalars["Int"]>;
+  /** An object containing data about the most frequently occurring values for this property */
+  topOccurrences?: Maybe<
+    Array<Maybe<AggregateJeopardyQuestionair_DateTopOccurrencesObj>>
+  >;
+  /** Aggregate on the total amount of found property values */
+  type?: Maybe<Scalars["String"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateJeopardyQuestionair_DateObjTopOccurrencesArgs = {
+  limit?: InputMaybe<Scalars["Int"]>;
+};
+
+/** An object containing data about the most frequently occurring values for this property */
+export type AggregateJeopardyQuestionair_DateTopOccurrencesObj = {
+  __typename?: "AggregateJeopardyQuestionair_dateTopOccurrencesObj";
+  /** How often the most frequently occurring value for this property occurs */
+  occurs?: Maybe<Scalars["Int"]>;
+  /** The most frequently occurring value for this property */
+  value?: Maybe<Scalars["String"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateJeopardyQuestionanswerObj = {
+  __typename?: "AggregateJeopardyQuestionanswerObj";
+  /** The total amount of found instances for this property */
+  count?: Maybe<Scalars["Int"]>;
+  /** An object containing data about the most frequently occurring values for this property */
+  topOccurrences?: Maybe<
+    Array<Maybe<AggregateJeopardyQuestionanswerTopOccurrencesObj>>
+  >;
+  /** Aggregate on the total amount of found property values */
+  type?: Maybe<Scalars["String"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateJeopardyQuestionanswerObjTopOccurrencesArgs = {
+  limit?: InputMaybe<Scalars["Int"]>;
+};
+
+/** An object containing data about the most frequently occurring values for this property */
+export type AggregateJeopardyQuestionanswerTopOccurrencesObj = {
+  __typename?: "AggregateJeopardyQuestionanswerTopOccurrencesObj";
+  /** How often the most frequently occurring value for this property occurs */
+  occurs?: Maybe<Scalars["Int"]>;
+  /** The most frequently occurring value for this property */
+  value?: Maybe<Scalars["String"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateJeopardyQuestioncategoryObj = {
+  __typename?: "AggregateJeopardyQuestioncategoryObj";
+  /** The total amount of found instances for this property */
+  count?: Maybe<Scalars["Int"]>;
+  /** An object containing data about the most frequently occurring values for this property */
+  topOccurrences?: Maybe<
+    Array<Maybe<AggregateJeopardyQuestioncategoryTopOccurrencesObj>>
+  >;
+  /** Aggregate on the total amount of found property values */
+  type?: Maybe<Scalars["String"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateJeopardyQuestioncategoryObjTopOccurrencesArgs = {
+  limit?: InputMaybe<Scalars["Int"]>;
+};
+
+/** An object containing data about the most frequently occurring values for this property */
+export type AggregateJeopardyQuestioncategoryTopOccurrencesObj = {
+  __typename?: "AggregateJeopardyQuestioncategoryTopOccurrencesObj";
+  /** How often the most frequently occurring value for this property occurs */
+  occurs?: Maybe<Scalars["Int"]>;
+  /** The most frequently occurring value for this property */
+  value?: Maybe<Scalars["String"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateJeopardyQuestionquestionObj = {
+  __typename?: "AggregateJeopardyQuestionquestionObj";
+  /** The total amount of found instances for this property */
+  count?: Maybe<Scalars["Int"]>;
+  /** An object containing data about the most frequently occurring values for this property */
+  topOccurrences?: Maybe<
+    Array<Maybe<AggregateJeopardyQuestionquestionTopOccurrencesObj>>
+  >;
+  /** Aggregate on the total amount of found property values */
+  type?: Maybe<Scalars["String"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateJeopardyQuestionquestionObjTopOccurrencesArgs = {
+  limit?: InputMaybe<Scalars["Int"]>;
+};
+
+/** An object containing data about the most frequently occurring values for this property */
+export type AggregateJeopardyQuestionquestionTopOccurrencesObj = {
+  __typename?: "AggregateJeopardyQuestionquestionTopOccurrencesObj";
+  /** How often the most frequently occurring value for this property occurs */
+  occurs?: Maybe<Scalars["Int"]>;
+  /** The most frequently occurring value for this property */
+  value?: Maybe<Scalars["String"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateJeopardyQuestionroundObj = {
+  __typename?: "AggregateJeopardyQuestionroundObj";
+  /** The total amount of found instances for this property */
+  count?: Maybe<Scalars["Int"]>;
+  /** An object containing data about the most frequently occurring values for this property */
+  topOccurrences?: Maybe<
+    Array<Maybe<AggregateJeopardyQuestionroundTopOccurrencesObj>>
+  >;
+  /** Aggregate on the total amount of found property values */
+  type?: Maybe<Scalars["String"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateJeopardyQuestionroundObjTopOccurrencesArgs = {
+  limit?: InputMaybe<Scalars["Int"]>;
+};
+
+/** An object containing data about the most frequently occurring values for this property */
+export type AggregateJeopardyQuestionroundTopOccurrencesObj = {
+  __typename?: "AggregateJeopardyQuestionroundTopOccurrencesObj";
+  /** How often the most frequently occurring value for this property occurs */
+  occurs?: Maybe<Scalars["Int"]>;
+  /** The most frequently occurring value for this property */
+  value?: Maybe<Scalars["String"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateJeopardyQuestionshow_NumberObj = {
+  __typename?: "AggregateJeopardyQuestionshow_numberObj";
+  /** The total amount of found instances for this property */
+  count?: Maybe<Scalars["Int"]>;
+  /** An object containing data about the most frequently occurring values for this property */
+  topOccurrences?: Maybe<
+    Array<Maybe<AggregateJeopardyQuestionshow_NumberTopOccurrencesObj>>
+  >;
+  /** Aggregate on the total amount of found property values */
+  type?: Maybe<Scalars["String"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateJeopardyQuestionshow_NumberObjTopOccurrencesArgs = {
+  limit?: InputMaybe<Scalars["Int"]>;
+};
+
+/** An object containing data about the most frequently occurring values for this property */
+export type AggregateJeopardyQuestionshow_NumberTopOccurrencesObj = {
+  __typename?: "AggregateJeopardyQuestionshow_numberTopOccurrencesObj";
+  /** How often the most frequently occurring value for this property occurs */
+  occurs?: Maybe<Scalars["Int"]>;
+  /** The most frequently occurring value for this property */
+  value?: Maybe<Scalars["String"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateJeopardyQuestionvalueObj = {
+  __typename?: "AggregateJeopardyQuestionvalueObj";
+  /** The total amount of found instances for this property */
+  count?: Maybe<Scalars["Int"]>;
+  /** An object containing data about the most frequently occurring values for this property */
+  topOccurrences?: Maybe<
+    Array<Maybe<AggregateJeopardyQuestionvalueTopOccurrencesObj>>
+  >;
+  /** Aggregate on the total amount of found property values */
+  type?: Maybe<Scalars["String"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateJeopardyQuestionvalueObjTopOccurrencesArgs = {
+  limit?: InputMaybe<Scalars["Int"]>;
+};
+
+/** An object containing data about the most frequently occurring values for this property */
+export type AggregateJeopardyQuestionvalueTopOccurrencesObj = {
+  __typename?: "AggregateJeopardyQuestionvalueTopOccurrencesObj";
+  /** How often the most frequently occurring value for this property occurs */
+  occurs?: Maybe<Scalars["Int"]>;
+  /** The most frequently occurring value for this property */
+  value?: Maybe<Scalars["String"]>;
+};
+
 export type AggregateMultiModal = {
   __typename?: "AggregateMultiModal";
   /** Aggregate this property"filename" */
@@ -124,6 +349,124 @@ export type AggregateMultiModalimageTopOccurrencesObj = {
   /** The most frequently occurring value for this property */
   value?: Maybe<Scalars["String"]>;
 };
+
+/** Hybrid search */
+export type AggregateObjectsJeopardyQuestionHybridInpObj = {
+  /** Search weight */
+  alpha?: InputMaybe<Scalars["Float"]>;
+  /** Query string */
+  query?: InputMaybe<Scalars["String"]>;
+  /** Vector search */
+  vector?: InputMaybe<Array<InputMaybe<Scalars["Float"]>>>;
+};
+
+export type AggregateObjectsJeopardyQuestionNearObjectInpObj = {
+  /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
+  beacon?: InputMaybe<Scalars["String"]>;
+  /** Normalized Distance between the result item and the search vector. Normalized to be between 0 (identical vectors) and 1 (perfect opposite). */
+  certainty?: InputMaybe<Scalars["Float"]>;
+  /** The required degree of similarity between an object's characteristics and the provided filter values */
+  distance?: InputMaybe<Scalars["Float"]>;
+  /** Concept identifier in the uuid format */
+  id?: InputMaybe<Scalars["String"]>;
+};
+
+export type AggregateObjectsJeopardyQuestionNearVectorInpObj = {
+  /** Normalized Distance between the result item and the search vector. Normalized to be between 0 (identical vectors) and 1 (perfect opposite). */
+  certainty?: InputMaybe<Scalars["Float"]>;
+  /** The required degree of similarity between an object's characteristics and the provided filter values */
+  distance?: InputMaybe<Scalars["Float"]>;
+  /** Target vector to be used in kNN search */
+  vector: Array<InputMaybe<Scalars["Float"]>>;
+};
+
+export type AggregateObjectsJeopardyQuestionWhereGeoRangeDistanceInpObj = {
+  /** The maximum distance from the point specified geoCoordinates. */
+  max: Scalars["Float"];
+};
+
+export type AggregateObjectsJeopardyQuestionWhereGeoRangeGeoCoordinatesInpObj =
+  {
+    /** The latitude (in decimal format) of the geoCoordinates to search around. */
+    latitude: Scalars["Float"];
+    /** The longitude (in decimal format) of the geoCoordinates to search around. */
+    longitude: Scalars["Float"];
+  };
+
+export type AggregateObjectsJeopardyQuestionWhereGeoRangeInpObj = {
+  /** The distance from the point specified via geoCoordinates. */
+  distance: AggregateObjectsJeopardyQuestionWhereGeoRangeDistanceInpObj;
+  /** The geoCoordinates that form the center point of the search. */
+  geoCoordinates: AggregateObjectsJeopardyQuestionWhereGeoRangeGeoCoordinatesInpObj;
+};
+
+/** An object containing filter options for a local Get query, used to convert the result to the specified filters */
+export type AggregateObjectsJeopardyQuestionWhereInpObj = {
+  /** Contains the Operands that can be applied to a 'where' filter */
+  operands?: InputMaybe<
+    Array<InputMaybe<AggregateObjectsJeopardyQuestionWhereOperandsInpObj>>
+  >;
+  /** Contains the Operators that can be applied to a 'where' filter */
+  operator?: InputMaybe<AggregateObjectsJeopardyQuestionWhereOperatorEnum>;
+  /** Specify the path from the Objects fields to the property name (e.g. ['Things', 'City', 'population'] leads to the 'population' property of a 'City' object) */
+  path?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Specify a Boolean value that the target property will be compared to */
+  valueBoolean?: InputMaybe<Scalars["Boolean"]>;
+  /** Specify a String value that the target property will be compared to */
+  valueDate?: InputMaybe<Scalars["String"]>;
+  /** Specify both geo-coordinates (latitude and longitude as decimals) and a maximum distance from the described coordinates. The search will return any result which is located less than or equal to the specified maximum distance in km away from the specified point. */
+  valueGeoRange?: InputMaybe<AggregateObjectsJeopardyQuestionWhereGeoRangeInpObj>;
+  /** Specify an Integer value that the target property will be compared to */
+  valueInt?: InputMaybe<Scalars["Int"]>;
+  /** Specify a Float value that the target property will be compared to */
+  valueNumber?: InputMaybe<Scalars["Float"]>;
+  /** Specify a String value that the target property will be compared to */
+  valueString?: InputMaybe<Scalars["String"]>;
+  /** Specify a Text value that the target property will be compared to */
+  valueText?: InputMaybe<Scalars["String"]>;
+};
+
+/** An object containing the Operands that can be applied to a 'where' filter */
+export type AggregateObjectsJeopardyQuestionWhereOperandsInpObj = {
+  /** Contains the Operands that can be applied to a 'where' filter */
+  operands?: InputMaybe<
+    Array<InputMaybe<AggregateObjectsJeopardyQuestionWhereOperandsInpObj>>
+  >;
+  /** Contains the Operators that can be applied to a 'where' filter */
+  operator?: InputMaybe<AggregateObjectsJeopardyQuestionWhereOperatorEnum>;
+  /** Specify the path from the Objects fields to the property name (e.g. ['Things', 'City', 'population'] leads to the 'population' property of a 'City' object) */
+  path?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Specify a Boolean value that the target property will be compared to */
+  valueBoolean?: InputMaybe<Scalars["Boolean"]>;
+  /** Specify a String value that the target property will be compared to */
+  valueDate?: InputMaybe<Scalars["String"]>;
+  /** Specify both geo-coordinates (latitude and longitude as decimals) and a maximum distance from the described coordinates. The search will return any result which is located less than or equal to the specified maximum distance in km away from the specified point. */
+  valueGeoRange?: InputMaybe<AggregateObjectsJeopardyQuestionWhereGeoRangeInpObj>;
+  /** Specify an Integer value that the target property will be compared to */
+  valueInt?: InputMaybe<Scalars["Int"]>;
+  /** Specify a Float value that the target property will be compared to */
+  valueNumber?: InputMaybe<Scalars["Float"]>;
+  /** Specify a String value that the target property will be compared to */
+  valueString?: InputMaybe<Scalars["String"]>;
+  /** Specify a Text value that the target property will be compared to */
+  valueText?: InputMaybe<Scalars["String"]>;
+};
+
+/** An object containing the Operators that can be applied to a 'where' filter */
+export enum AggregateObjectsJeopardyQuestionWhereOperatorEnum {
+  And = "And",
+  Equal = "Equal",
+  GreaterThan = "GreaterThan",
+  GreaterThanEqual = "GreaterThanEqual",
+  IsNull = "IsNull",
+  LessThan = "LessThan",
+  LessThanEqual = "LessThanEqual",
+  Like = "Like",
+  Not = "Not",
+  NotEqual = "NotEqual",
+  Or = "Or",
+  WithinGeoRange = "WithinGeoRange",
+}
 
 /** Hybrid search */
 export type AggregateObjectsMultiModalHybridInpObj = {
@@ -245,7 +588,21 @@ export enum AggregateObjectsMultiModalWhereOperatorEnum {
 /** An object allowing Aggregation of %ss on a local Weaviate */
 export type AggregateObjectsObj = {
   __typename?: "AggregateObjectsObj";
+  JeopardyQuestion?: Maybe<Array<Maybe<AggregateJeopardyQuestion>>>;
   MultiModal?: Maybe<Array<Maybe<AggregateMultiModal>>>;
+};
+
+/** An object allowing Aggregation of %ss on a local Weaviate */
+export type AggregateObjectsObjJeopardyQuestionArgs = {
+  ask?: InputMaybe<QnATransformersAggregateJeopardyQuestionAskInpObj>;
+  groupBy?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  hybrid?: InputMaybe<AggregateObjectsJeopardyQuestionHybridInpObj>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  nearObject?: InputMaybe<AggregateObjectsJeopardyQuestionNearObjectInpObj>;
+  nearText?: InputMaybe<Txt2VecOpenAiAggregateJeopardyQuestionNearTextInpObj>;
+  nearVector?: InputMaybe<AggregateObjectsJeopardyQuestionNearVectorInpObj>;
+  objectLimit?: InputMaybe<Scalars["Int"]>;
+  where?: InputMaybe<AggregateObjectsJeopardyQuestionWhereInpObj>;
 };
 
 /** An object allowing Aggregation of %ss on a local Weaviate */
@@ -262,7 +619,36 @@ export type AggregateObjectsObjMultiModalArgs = {
   where?: InputMaybe<AggregateObjectsMultiModalWhereInpObj>;
 };
 
-export type ExploreNearObjectInpObj = {
+/** An object containing filter options for a local Get query, used to convert the result to the specified filters */
+export type GetObjectsJeopardyQuestionGroupInpObj = {
+  /** The force to apply for a particular movements. Must be between 0 and 1 where 0 is equivalent to no movement and 1 is equivalent to largest movement possible */
+  force: Scalars["Float"];
+  type?: InputMaybe<GetObjectsJeopardyQuestionGroupInpObjTypeEnum>;
+};
+
+export enum GetObjectsJeopardyQuestionGroupInpObjTypeEnum {
+  Closest = "closest",
+  Merge = "merge",
+}
+
+export type GetObjectsJeopardyQuestionHybridGetBm25InpObj = {
+  /** The properties to search in */
+  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** The query to search for */
+  query?: InputMaybe<Scalars["String"]>;
+};
+
+/** Hybrid search */
+export type GetObjectsJeopardyQuestionHybridInpObj = {
+  /** Search weight */
+  alpha?: InputMaybe<Scalars["Float"]>;
+  /** Query string */
+  query?: InputMaybe<Scalars["String"]>;
+  /** Vector search */
+  vector?: InputMaybe<Array<InputMaybe<Scalars["Float"]>>>;
+};
+
+export type GetObjectsJeopardyQuestionNearObjectInpObj = {
   /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
   beacon?: InputMaybe<Scalars["String"]>;
   /** Normalized Distance between the result item and the search vector. Normalized to be between 0 (identical vectors) and 1 (perfect opposite). */
@@ -273,27 +659,114 @@ export type ExploreNearObjectInpObj = {
   id?: InputMaybe<Scalars["String"]>;
 };
 
-export type ExploreNearVectorInpObj = {
+export type GetObjectsJeopardyQuestionNearVectorInpObj = {
   /** Normalized Distance between the result item and the search vector. Normalized to be between 0 (identical vectors) and 1 (perfect opposite). */
   certainty?: InputMaybe<Scalars["Float"]>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
   distance?: InputMaybe<Scalars["Float"]>;
-  /** Normalized Distance between the result item and the search vector. Normalized to be between 0 (identical vectors) and 1 (perfect opposite). */
+  /** Target vector to be used in kNN search */
   vector: Array<InputMaybe<Scalars["Float"]>>;
 };
 
-/** Explore Concepts on a local weaviate with vector-aided search */
-export type ExploreObj = {
-  __typename?: "ExploreObj";
-  /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: Maybe<Scalars["String"]>;
-  /** Normalized Distance between the result item and the search vector. Normalized to be between 0 (identical vectors) and 1 (perfect opposite). */
-  certainty?: Maybe<Scalars["Float"]>;
-  /** Name of the Class */
-  className?: Maybe<Scalars["String"]>;
-  /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: Maybe<Scalars["Float"]>;
+/** An object containing filter options for a local Get query, used to convert the result to the specified filters */
+export type GetObjectsJeopardyQuestionSortInpObj = {
+  /** Specify the sort order, either ascending (asc) which is default or descending (desc) */
+  order?: InputMaybe<GetObjectsJeopardyQuestionSortInpObjTypeEnum>;
+  /** Specify the path from the Objects fields to the property name (e.g. ['Get', 'City', 'population'] leads to the 'population' property of a 'City' object) */
+  path?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
+
+export enum GetObjectsJeopardyQuestionSortInpObjTypeEnum {
+  Asc = "asc",
+  Desc = "desc",
+}
+
+export type GetObjectsJeopardyQuestionWhereGeoRangeDistanceInpObj = {
+  /** The maximum distance from the point specified geoCoordinates. */
+  max: Scalars["Float"];
+};
+
+export type GetObjectsJeopardyQuestionWhereGeoRangeGeoCoordinatesInpObj = {
+  /** The latitude (in decimal format) of the geoCoordinates to search around. */
+  latitude: Scalars["Float"];
+  /** The longitude (in decimal format) of the geoCoordinates to search around. */
+  longitude: Scalars["Float"];
+};
+
+export type GetObjectsJeopardyQuestionWhereGeoRangeInpObj = {
+  /** The distance from the point specified via geoCoordinates. */
+  distance: GetObjectsJeopardyQuestionWhereGeoRangeDistanceInpObj;
+  /** The geoCoordinates that form the center point of the search. */
+  geoCoordinates: GetObjectsJeopardyQuestionWhereGeoRangeGeoCoordinatesInpObj;
+};
+
+/** An object containing filter options for a local Get query, used to convert the result to the specified filters */
+export type GetObjectsJeopardyQuestionWhereInpObj = {
+  /** Contains the Operands that can be applied to a 'where' filter */
+  operands?: InputMaybe<
+    Array<InputMaybe<GetObjectsJeopardyQuestionWhereOperandsInpObj>>
+  >;
+  /** Contains the Operators that can be applied to a 'where' filter */
+  operator?: InputMaybe<GetObjectsJeopardyQuestionWhereOperatorEnum>;
+  /** Specify the path from the Objects fields to the property name (e.g. ['Things', 'City', 'population'] leads to the 'population' property of a 'City' object) */
+  path?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Specify a Boolean value that the target property will be compared to */
+  valueBoolean?: InputMaybe<Scalars["Boolean"]>;
+  /** Specify a String value that the target property will be compared to */
+  valueDate?: InputMaybe<Scalars["String"]>;
+  /** Specify both geo-coordinates (latitude and longitude as decimals) and a maximum distance from the described coordinates. The search will return any result which is located less than or equal to the specified maximum distance in km away from the specified point. */
+  valueGeoRange?: InputMaybe<GetObjectsJeopardyQuestionWhereGeoRangeInpObj>;
+  /** Specify an Integer value that the target property will be compared to */
+  valueInt?: InputMaybe<Scalars["Int"]>;
+  /** Specify a Float value that the target property will be compared to */
+  valueNumber?: InputMaybe<Scalars["Float"]>;
+  /** Specify a String value that the target property will be compared to */
+  valueString?: InputMaybe<Scalars["String"]>;
+  /** Specify a Text value that the target property will be compared to */
+  valueText?: InputMaybe<Scalars["String"]>;
+};
+
+/** An object containing the Operands that can be applied to a 'where' filter */
+export type GetObjectsJeopardyQuestionWhereOperandsInpObj = {
+  /** Contains the Operands that can be applied to a 'where' filter */
+  operands?: InputMaybe<
+    Array<InputMaybe<GetObjectsJeopardyQuestionWhereOperandsInpObj>>
+  >;
+  /** Contains the Operators that can be applied to a 'where' filter */
+  operator?: InputMaybe<GetObjectsJeopardyQuestionWhereOperatorEnum>;
+  /** Specify the path from the Objects fields to the property name (e.g. ['Things', 'City', 'population'] leads to the 'population' property of a 'City' object) */
+  path?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Specify a Boolean value that the target property will be compared to */
+  valueBoolean?: InputMaybe<Scalars["Boolean"]>;
+  /** Specify a String value that the target property will be compared to */
+  valueDate?: InputMaybe<Scalars["String"]>;
+  /** Specify both geo-coordinates (latitude and longitude as decimals) and a maximum distance from the described coordinates. The search will return any result which is located less than or equal to the specified maximum distance in km away from the specified point. */
+  valueGeoRange?: InputMaybe<GetObjectsJeopardyQuestionWhereGeoRangeInpObj>;
+  /** Specify an Integer value that the target property will be compared to */
+  valueInt?: InputMaybe<Scalars["Int"]>;
+  /** Specify a Float value that the target property will be compared to */
+  valueNumber?: InputMaybe<Scalars["Float"]>;
+  /** Specify a String value that the target property will be compared to */
+  valueString?: InputMaybe<Scalars["String"]>;
+  /** Specify a Text value that the target property will be compared to */
+  valueText?: InputMaybe<Scalars["String"]>;
+};
+
+/** An object containing the Operators that can be applied to a 'where' filter */
+export enum GetObjectsJeopardyQuestionWhereOperatorEnum {
+  And = "And",
+  Equal = "Equal",
+  GreaterThan = "GreaterThan",
+  GreaterThanEqual = "GreaterThanEqual",
+  IsNull = "IsNull",
+  LessThan = "LessThan",
+  LessThanEqual = "LessThanEqual",
+  Like = "Like",
+  Not = "Not",
+  NotEqual = "NotEqual",
+  Or = "Or",
+  WithinGeoRange = "WithinGeoRange",
+}
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
 export type GetObjectsMultiModalGroupInpObj = {
@@ -447,7 +920,24 @@ export enum GetObjectsMultiModalWhereOperatorEnum {
 /** An object used to get %ss on a local Weaviate */
 export type GetObjectsObj = {
   __typename?: "GetObjectsObj";
+  JeopardyQuestion?: Maybe<Array<Maybe<JeopardyQuestion>>>;
   MultiModal?: Maybe<Array<Maybe<MultiModal>>>;
+};
+
+/** An object used to get %ss on a local Weaviate */
+export type GetObjectsObjJeopardyQuestionArgs = {
+  after?: InputMaybe<Scalars["String"]>;
+  ask?: InputMaybe<QnATransformersGetObjectsJeopardyQuestionAskInpObj>;
+  bm25?: InputMaybe<GetObjectsJeopardyQuestionHybridGetBm25InpObj>;
+  group?: InputMaybe<GetObjectsJeopardyQuestionGroupInpObj>;
+  hybrid?: InputMaybe<GetObjectsJeopardyQuestionHybridInpObj>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  nearObject?: InputMaybe<GetObjectsJeopardyQuestionNearObjectInpObj>;
+  nearText?: InputMaybe<Txt2VecOpenAiGetObjectsJeopardyQuestionNearTextInpObj>;
+  nearVector?: InputMaybe<GetObjectsJeopardyQuestionNearVectorInpObj>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  sort?: InputMaybe<Array<InputMaybe<GetObjectsJeopardyQuestionSortInpObj>>>;
+  where?: InputMaybe<GetObjectsJeopardyQuestionWhereInpObj>;
 };
 
 /** An object used to get %ss on a local Weaviate */
@@ -478,7 +968,7 @@ export type Img2VecImageAggregateMultiModalNearImageInpObj = {
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
-export type Img2VecImageExploreNearImageInpObj = {
+export type Img2VecImageGetObjectsMultiModalNearImageInpObj = {
   /** Normalized Distance between the result item and the search vector. Normalized to be between 0 (identical vectors) and 1 (perfect opposite). */
   certainty?: InputMaybe<Scalars["Float"]>;
   /** The required degree of similarity between an object's characteristics and the provided filter values */
@@ -487,14 +977,143 @@ export type Img2VecImageExploreNearImageInpObj = {
   image: Scalars["String"];
 };
 
-/** An object containing filter options for a local Get query, used to convert the result to the specified filters */
-export type Img2VecImageGetObjectsMultiModalNearImageInpObj = {
-  /** Normalized Distance between the result item and the search vector. Normalized to be between 0 (identical vectors) and 1 (perfect opposite). */
+export type JeopardyQuestion = {
+  __typename?: "JeopardyQuestion";
+  _additional?: Maybe<JeopardyQuestionAdditional>;
+  /** This property was generated by Weaviate's auto-schema feature on Fri Apr 21 12:31:40 2023 */
+  air_date?: Maybe<Scalars["String"]>;
+  /** This property was generated by Weaviate's auto-schema feature on Fri Apr 21 12:31:40 2023 */
+  answer?: Maybe<Scalars["String"]>;
+  /** This property was generated by Weaviate's auto-schema feature on Fri Apr 21 12:31:40 2023 */
+  category?: Maybe<Scalars["String"]>;
+  /** This property was generated by Weaviate's auto-schema feature on Fri Apr 21 12:31:40 2023 */
+  question?: Maybe<Scalars["String"]>;
+  /** This property was generated by Weaviate's auto-schema feature on Fri Apr 21 12:31:40 2023 */
+  round?: Maybe<Scalars["String"]>;
+  /** This property was generated by Weaviate's auto-schema feature on Fri Apr 21 12:31:40 2023 */
+  show_number?: Maybe<Scalars["String"]>;
+  /** This property was generated by Weaviate's auto-schema feature on Fri Apr 21 12:31:40 2023 */
+  value?: Maybe<Scalars["String"]>;
+};
+
+export type JeopardyQuestionAdditional = {
+  __typename?: "JeopardyQuestionAdditional";
+  answer?: Maybe<JeopardyQuestionAdditionalAnswer>;
+  certainty?: Maybe<Scalars["Float"]>;
+  classification?: Maybe<JeopardyQuestionAdditionalClassification>;
+  creationTimeUnix?: Maybe<Scalars["String"]>;
+  distance?: Maybe<Scalars["Float"]>;
+  explainScore?: Maybe<Scalars["String"]>;
+  featureProjection?: Maybe<JeopardyQuestionAdditionalFeatureProjection>;
+  generate?: Maybe<JeopardyQuestionAdditionalGenerate>;
+  /** The UUID of a Object, assigned by its local Weaviate */
+  id?: Maybe<Scalars["String"]>;
+  lastUpdateTimeUnix?: Maybe<Scalars["String"]>;
+  score?: Maybe<Scalars["String"]>;
+  spellCheck?: Maybe<Array<Maybe<JeopardyQuestionAdditionalSpellCheck>>>;
+  summary?: Maybe<Array<Maybe<JeopardyQuestionAdditionalSummary>>>;
+  tokens?: Maybe<Array<Maybe<JeopardyQuestionAdditionalTokens>>>;
+  vector?: Maybe<Array<Maybe<Scalars["Float"]>>>;
+};
+
+export type JeopardyQuestionAdditionalFeatureProjectionArgs = {
+  algorithm?: InputMaybe<Scalars["String"]>;
+  dimensions?: InputMaybe<Scalars["Int"]>;
+  iterations?: InputMaybe<Scalars["Int"]>;
+  learningRate?: InputMaybe<Scalars["Int"]>;
+  perplexity?: InputMaybe<Scalars["Int"]>;
+};
+
+export type JeopardyQuestionAdditionalGenerateArgs = {
+  groupedResult?: InputMaybe<JeopardyQuestionAllResultsArg>;
+  singleResult?: InputMaybe<JeopardyQuestionIndividualResultsArg>;
+};
+
+export type JeopardyQuestionAdditionalSummaryArgs = {
+  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+};
+
+export type JeopardyQuestionAdditionalTokensArgs = {
   certainty?: InputMaybe<Scalars["Float"]>;
-  /** The required degree of similarity between an object's characteristics and the provided filter values */
   distance?: InputMaybe<Scalars["Float"]>;
-  /** Base64 encoded image */
-  image: Scalars["String"];
+  limit?: InputMaybe<Scalars["Int"]>;
+  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+};
+
+export type JeopardyQuestionAdditionalAnswer = {
+  __typename?: "JeopardyQuestionAdditionalAnswer";
+  certainty?: Maybe<Scalars["Float"]>;
+  distance?: Maybe<Scalars["Float"]>;
+  endPosition?: Maybe<Scalars["Int"]>;
+  hasAnswer?: Maybe<Scalars["Boolean"]>;
+  property?: Maybe<Scalars["String"]>;
+  result?: Maybe<Scalars["String"]>;
+  startPosition?: Maybe<Scalars["Int"]>;
+};
+
+export type JeopardyQuestionAdditionalClassification = {
+  __typename?: "JeopardyQuestionAdditionalClassification";
+  basedOn?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  classifiedFields?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  completed?: Maybe<Scalars["String"]>;
+  id?: Maybe<Scalars["String"]>;
+  scope?: Maybe<Array<Maybe<Scalars["String"]>>>;
+};
+
+export type JeopardyQuestionAdditionalFeatureProjection = {
+  __typename?: "JeopardyQuestionAdditionalFeatureProjection";
+  vector?: Maybe<Array<Maybe<Scalars["Float"]>>>;
+};
+
+export type JeopardyQuestionAdditionalGenerate = {
+  __typename?: "JeopardyQuestionAdditionalGenerate";
+  error?: Maybe<Scalars["String"]>;
+  groupedResult?: Maybe<Scalars["String"]>;
+  singleResult?: Maybe<Scalars["String"]>;
+};
+
+export type JeopardyQuestionAdditionalSpellCheck = {
+  __typename?: "JeopardyQuestionAdditionalSpellCheck";
+  changes?: Maybe<Array<Maybe<JeopardyQuestionAdditionalSpellCheckChanges>>>;
+  didYouMean?: Maybe<Scalars["String"]>;
+  location?: Maybe<Scalars["String"]>;
+  numberOfCorrections?: Maybe<Scalars["Int"]>;
+  originalText?: Maybe<Scalars["String"]>;
+};
+
+export type JeopardyQuestionAdditionalSpellCheckChanges = {
+  __typename?: "JeopardyQuestionAdditionalSpellCheckChanges";
+  corrected?: Maybe<Scalars["String"]>;
+  original?: Maybe<Scalars["String"]>;
+};
+
+export type JeopardyQuestionAdditionalSummary = {
+  __typename?: "JeopardyQuestionAdditionalSummary";
+  property?: Maybe<Scalars["String"]>;
+  result?: Maybe<Scalars["String"]>;
+};
+
+export type JeopardyQuestionAdditionalTokens = {
+  __typename?: "JeopardyQuestionAdditionalTokens";
+  certainty?: Maybe<Scalars["Float"]>;
+  distance?: Maybe<Scalars["Float"]>;
+  endPosition?: Maybe<Scalars["Int"]>;
+  entity?: Maybe<Scalars["String"]>;
+  property?: Maybe<Scalars["String"]>;
+  startPosition?: Maybe<Scalars["Int"]>;
+  word?: Maybe<Scalars["String"]>;
+};
+
+export type JeopardyQuestionAllResultsArg = {
+  /** Properties used for the generation */
+  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** task */
+  task?: InputMaybe<Scalars["String"]>;
+};
+
+export type JeopardyQuestionIndividualResultsArg = {
+  /** prompt */
+  prompt?: InputMaybe<Scalars["String"]>;
 };
 
 export type MultiModal = {
@@ -611,6 +1230,22 @@ export type MultiModalIndividualResultsArg = {
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
+export type QnATransformersAggregateJeopardyQuestionAskInpObj = {
+  /** Autocorrect input text values */
+  autocorrect?: InputMaybe<Scalars["Boolean"]>;
+  /** Normalized Distance between the result item and the search vector. Normalized to be between 0 (identical vectors) and 1 (perfect opposite). */
+  certainty?: InputMaybe<Scalars["Float"]>;
+  /** The required degree of similarity between an object's characteristics and the provided filter values */
+  distance?: InputMaybe<Scalars["Float"]>;
+  /** Properties which contains text */
+  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Question to be answered */
+  question: Scalars["String"];
+  /** Arranges the results by certainty */
+  rerank?: InputMaybe<Scalars["Boolean"]>;
+};
+
+/** An object containing filter options for a local Get query, used to convert the result to the specified filters */
 export type QnATransformersAggregateMultiModalAskInpObj = {
   /** Autocorrect input text values */
   autocorrect?: InputMaybe<Scalars["Boolean"]>;
@@ -627,7 +1262,7 @@ export type QnATransformersAggregateMultiModalAskInpObj = {
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
-export type QnATransformersExploreAskInpObj = {
+export type QnATransformersGetObjectsJeopardyQuestionAskInpObj = {
   /** Autocorrect input text values */
   autocorrect?: InputMaybe<Scalars["Boolean"]>;
   /** Normalized Distance between the result item and the search vector. Normalized to be between 0 (identical vectors) and 1 (perfect opposite). */
@@ -713,59 +1348,6 @@ export type Txt2VecC11yAggregateMultiModalNearTextInpObj = {
   moveTo?: InputMaybe<Txt2VecC11yAggregateMultiModalMoveTo>;
 };
 
-export type Txt2VecC11yExploreMoveAwayFrom = {
-  /** Keywords are a list of search terms. Array type, e.g. ["keyword 1", "keyword 2"] */
-  concepts?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
-  /** The force to apply for a particular movements. Must be between 0 and 1 where 0 is equivalent to no movement and 1 is equivalent to largest movement possible */
-  force: Scalars["Float"];
-  /** objects */
-  objects?: InputMaybe<
-    Array<InputMaybe<Txt2VecC11yExploreMoveAwayFromMovementObjectsInpObj>>
-  >;
-};
-
-/** Movement Object */
-export type Txt2VecC11yExploreMoveAwayFromMovementObjectsInpObj = {
-  /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]>;
-  /** id of an object */
-  id?: InputMaybe<Scalars["String"]>;
-};
-
-export type Txt2VecC11yExploreMoveTo = {
-  /** Keywords are a list of search terms. Array type, e.g. ["keyword 1", "keyword 2"] */
-  concepts?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
-  /** The force to apply for a particular movements. Must be between 0 and 1 where 0 is equivalent to no movement and 1 is equivalent to largest movement possible */
-  force: Scalars["Float"];
-  /** objects */
-  objects?: InputMaybe<
-    Array<InputMaybe<Txt2VecC11yExploreMoveToMovementObjectsInpObj>>
-  >;
-};
-
-/** Movement Object */
-export type Txt2VecC11yExploreMoveToMovementObjectsInpObj = {
-  /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
-  beacon?: InputMaybe<Scalars["String"]>;
-  /** id of an object */
-  id?: InputMaybe<Scalars["String"]>;
-};
-
-/** An object containing filter options for a local Get query, used to convert the result to the specified filters */
-export type Txt2VecC11yExploreNearTextInpObj = {
-  /** Autocorrect input text values */
-  autocorrect?: InputMaybe<Scalars["Boolean"]>;
-  /** Normalized Distance between the result item and the search vector. Normalized to be between 0 (identical vectors) and 1 (perfect opposite). */
-  certainty?: InputMaybe<Scalars["Float"]>;
-  concepts: Array<InputMaybe<Scalars["String"]>>;
-  /** The required degree of similarity between an object's characteristics and the provided filter values */
-  distance?: InputMaybe<Scalars["Float"]>;
-  /** Move your search term closer to or further away from another vector described by keywords */
-  moveAwayFrom?: InputMaybe<Txt2VecC11yExploreMoveAwayFrom>;
-  /** Move your search term closer to or further away from another vector described by keywords */
-  moveTo?: InputMaybe<Txt2VecC11yExploreMoveTo>;
-};
-
 export type Txt2VecC11yGetObjectsMultiModalMoveAwayFrom = {
   /** Keywords are a list of search terms. Array type, e.g. ["keyword 1", "keyword 2"] */
   concepts?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
@@ -823,26 +1405,157 @@ export type Txt2VecC11yGetObjectsMultiModalNearTextInpObj = {
   moveTo?: InputMaybe<Txt2VecC11yGetObjectsMultiModalMoveTo>;
 };
 
+export type Txt2VecOpenAiAggregateJeopardyQuestionMoveAwayFrom = {
+  /** Keywords are a list of search terms. Array type, e.g. ["keyword 1", "keyword 2"] */
+  concepts?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** The force to apply for a particular movements. Must be between 0 and 1 where 0 is equivalent to no movement and 1 is equivalent to largest movement possible */
+  force: Scalars["Float"];
+  /** objects */
+  objects?: InputMaybe<
+    Array<
+      InputMaybe<Txt2VecOpenAiAggregateJeopardyQuestionMoveAwayFromMovementObjectsInpObj>
+    >
+  >;
+};
+
+/** Movement Object */
+export type Txt2VecOpenAiAggregateJeopardyQuestionMoveAwayFromMovementObjectsInpObj =
+  {
+    /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
+    beacon?: InputMaybe<Scalars["String"]>;
+    /** id of an object */
+    id?: InputMaybe<Scalars["String"]>;
+  };
+
+export type Txt2VecOpenAiAggregateJeopardyQuestionMoveTo = {
+  /** Keywords are a list of search terms. Array type, e.g. ["keyword 1", "keyword 2"] */
+  concepts?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** The force to apply for a particular movements. Must be between 0 and 1 where 0 is equivalent to no movement and 1 is equivalent to largest movement possible */
+  force: Scalars["Float"];
+  /** objects */
+  objects?: InputMaybe<
+    Array<
+      InputMaybe<Txt2VecOpenAiAggregateJeopardyQuestionMoveToMovementObjectsInpObj>
+    >
+  >;
+};
+
+/** Movement Object */
+export type Txt2VecOpenAiAggregateJeopardyQuestionMoveToMovementObjectsInpObj =
+  {
+    /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
+    beacon?: InputMaybe<Scalars["String"]>;
+    /** id of an object */
+    id?: InputMaybe<Scalars["String"]>;
+  };
+
+/** An object containing filter options for a local Get query, used to convert the result to the specified filters */
+export type Txt2VecOpenAiAggregateJeopardyQuestionNearTextInpObj = {
+  /** Autocorrect input text values */
+  autocorrect?: InputMaybe<Scalars["Boolean"]>;
+  /** Normalized Distance between the result item and the search vector. Normalized to be between 0 (identical vectors) and 1 (perfect opposite). */
+  certainty?: InputMaybe<Scalars["Float"]>;
+  concepts: Array<InputMaybe<Scalars["String"]>>;
+  /** The required degree of similarity between an object's characteristics and the provided filter values */
+  distance?: InputMaybe<Scalars["Float"]>;
+  /** Move your search term closer to or further away from another vector described by keywords */
+  moveAwayFrom?: InputMaybe<Txt2VecOpenAiAggregateJeopardyQuestionMoveAwayFrom>;
+  /** Move your search term closer to or further away from another vector described by keywords */
+  moveTo?: InputMaybe<Txt2VecOpenAiAggregateJeopardyQuestionMoveTo>;
+};
+
+export type Txt2VecOpenAiGetObjectsJeopardyQuestionMoveAwayFrom = {
+  /** Keywords are a list of search terms. Array type, e.g. ["keyword 1", "keyword 2"] */
+  concepts?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** The force to apply for a particular movements. Must be between 0 and 1 where 0 is equivalent to no movement and 1 is equivalent to largest movement possible */
+  force: Scalars["Float"];
+  /** objects */
+  objects?: InputMaybe<
+    Array<
+      InputMaybe<Txt2VecOpenAiGetObjectsJeopardyQuestionMoveAwayFromMovementObjectsInpObj>
+    >
+  >;
+};
+
+/** Movement Object */
+export type Txt2VecOpenAiGetObjectsJeopardyQuestionMoveAwayFromMovementObjectsInpObj =
+  {
+    /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
+    beacon?: InputMaybe<Scalars["String"]>;
+    /** id of an object */
+    id?: InputMaybe<Scalars["String"]>;
+  };
+
+export type Txt2VecOpenAiGetObjectsJeopardyQuestionMoveTo = {
+  /** Keywords are a list of search terms. Array type, e.g. ["keyword 1", "keyword 2"] */
+  concepts?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** The force to apply for a particular movements. Must be between 0 and 1 where 0 is equivalent to no movement and 1 is equivalent to largest movement possible */
+  force: Scalars["Float"];
+  /** objects */
+  objects?: InputMaybe<
+    Array<
+      InputMaybe<Txt2VecOpenAiGetObjectsJeopardyQuestionMoveToMovementObjectsInpObj>
+    >
+  >;
+};
+
+/** Movement Object */
+export type Txt2VecOpenAiGetObjectsJeopardyQuestionMoveToMovementObjectsInpObj =
+  {
+    /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
+    beacon?: InputMaybe<Scalars["String"]>;
+    /** id of an object */
+    id?: InputMaybe<Scalars["String"]>;
+  };
+
+/** An object containing filter options for a local Get query, used to convert the result to the specified filters */
+export type Txt2VecOpenAiGetObjectsJeopardyQuestionNearTextInpObj = {
+  /** Autocorrect input text values */
+  autocorrect?: InputMaybe<Scalars["Boolean"]>;
+  /** Normalized Distance between the result item and the search vector. Normalized to be between 0 (identical vectors) and 1 (perfect opposite). */
+  certainty?: InputMaybe<Scalars["Float"]>;
+  concepts: Array<InputMaybe<Scalars["String"]>>;
+  /** The required degree of similarity between an object's characteristics and the provided filter values */
+  distance?: InputMaybe<Scalars["Float"]>;
+  /** Move your search term closer to or further away from another vector described by keywords */
+  moveAwayFrom?: InputMaybe<Txt2VecOpenAiGetObjectsJeopardyQuestionMoveAwayFrom>;
+  /** Move your search term closer to or further away from another vector described by keywords */
+  moveTo?: InputMaybe<Txt2VecOpenAiGetObjectsJeopardyQuestionMoveTo>;
+};
+
 /** Location of the root query */
 export type WeaviateObj = {
   __typename?: "WeaviateObj";
   /** Filter options for a local Aggregate query, used to convert the result to the specified filters */
   Aggregate?: Maybe<AggregateObjectsObj>;
-  /** Explore Concepts on a local weaviate with vector-aided search */
-  Explore?: Maybe<Array<Maybe<ExploreObj>>>;
   /** Get Objects on a local Weaviate */
   Get?: Maybe<GetObjectsObj>;
 };
 
-/** Location of the root query */
-export type WeaviateObjExploreArgs = {
-  ask?: InputMaybe<QnATransformersExploreAskInpObj>;
-  limit?: InputMaybe<Scalars["Int"]>;
-  nearImage?: InputMaybe<Img2VecImageExploreNearImageInpObj>;
-  nearObject?: InputMaybe<ExploreNearObjectInpObj>;
-  nearText?: InputMaybe<Txt2VecC11yExploreNearTextInpObj>;
-  nearVector?: InputMaybe<ExploreNearVectorInpObj>;
-  offset?: InputMaybe<Scalars["Int"]>;
+export type GetJeopardyAnswerQueryVariables = Exact<{
+  question?: InputMaybe<Scalars["String"]>;
+}>;
+
+export type GetJeopardyAnswerQuery = {
+  __typename?: "WeaviateObj";
+  Get?: {
+    __typename?: "GetObjectsObj";
+    JeopardyQuestion?: Array<{
+      __typename?: "JeopardyQuestion";
+      category?: string | null;
+      air_date?: string | null;
+      question?: string | null;
+      value?: string | null;
+      answer?: string | null;
+      round?: string | null;
+      show_number?: string | null;
+      _additional?: {
+        __typename?: "JeopardyQuestionAdditional";
+        id?: string | null;
+        certainty?: number | null;
+      } | null;
+    } | null> | null;
+  } | null;
 };
 
 export type GetMultiModalImageQueryVariables = Exact<{
@@ -887,6 +1600,45 @@ export type GetMultiModalTextQuery = {
   } | null;
 };
 
+export const GetJeopardyAnswerDocument = `
+    query getJeopardyAnswer($question: String) {
+  Get {
+    JeopardyQuestion(nearText: {concepts: [$question]}) {
+      category
+      air_date
+      question
+      value
+      answer
+      round
+      show_number
+      _additional {
+        id
+        certainty
+      }
+    }
+  }
+}
+    `;
+export const useGetJeopardyAnswerQuery = <
+  TData = GetJeopardyAnswerQuery,
+  TError = unknown
+>(
+  dataSource: { endpoint: string; fetchParams?: RequestInit },
+  variables?: GetJeopardyAnswerQueryVariables,
+  options?: UseQueryOptions<GetJeopardyAnswerQuery, TError, TData>
+) =>
+  useQuery<GetJeopardyAnswerQuery, TError, TData>(
+    variables === undefined
+      ? ["getJeopardyAnswer"]
+      : ["getJeopardyAnswer", variables],
+    fetcher<GetJeopardyAnswerQuery, GetJeopardyAnswerQueryVariables>(
+      dataSource.endpoint,
+      dataSource.fetchParams || {},
+      GetJeopardyAnswerDocument,
+      variables
+    ),
+    options
+  );
 export const GetMultiModalImageDocument = `
     query getMultiModalImage($image: String!) {
   Get {

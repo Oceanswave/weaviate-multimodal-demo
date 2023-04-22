@@ -1,0 +1,21 @@
+query getJeopardyAnswer($question: String) {
+    Get {
+        JeopardyQuestion(
+            nearText: {
+                concepts: [$question]
+            }
+         ) {
+            category
+            air_date
+            question
+            value
+            answer
+            round
+            show_number
+            _additional {
+                id
+                certainty
+            }
+        }
+    }
+}
