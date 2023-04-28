@@ -2303,7 +2303,7 @@ export type GetMultiModalTextQuery = {
 export const GetJeopardyAnswerDocument = `
     query getJeopardyAnswer($question: String) {
   Get {
-    JeopardyQuestion(nearText: {concepts: [$question]}, limit: 10) {
+    JeopardyQuestion(nearText: {concepts: [$question]}, limit: 19) {
       category
       air_date
       question
@@ -2342,7 +2342,7 @@ export const useGetJeopardyAnswerQuery = <
 export const GetMultiModalImageDocument = `
     query getMultiModalImage($image: String!) {
   Get {
-    MultiModal(nearImage: {image: $image}, limit: 5) {
+    MultiModal(nearImage: {image: $image}, limit: 10) {
       filename
       image
       _additional {
@@ -2374,7 +2374,7 @@ export const useGetMultiModalImageQuery = <
 export const GetMultiModalTextDocument = `
     query getMultiModalText($searchTerm: String) {
   Get {
-    MultiModal(nearText: {concepts: [$searchTerm]}, limit: 5) {
+    MultiModal(nearText: {concepts: [$searchTerm]}, limit: 10) {
       filename
       image
       _additional {

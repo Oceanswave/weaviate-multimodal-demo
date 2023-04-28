@@ -4,7 +4,7 @@ query getJeopardyAnswer($question: String) {
             nearText: {
                 concepts: [$question]
             }
-            limit: 10
+            limit: 19
          ) {
             category
             air_date
