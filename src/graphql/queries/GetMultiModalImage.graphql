@@ -4,6 +4,7 @@ query getMultiModalImage($image: String!) {
             nearImage: {
                 image: $image
             }
+            limit: 5
          ) {
             filename
             image

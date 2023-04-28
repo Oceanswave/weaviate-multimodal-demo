@@ -4,6 +4,7 @@ query getMultiModalText($searchTerm: String) {
             nearText: {
                 concepts: [$searchTerm]
             }
+            limit: 5
          ) {
             filename
             image

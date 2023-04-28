@@ -4,6 +4,7 @@ query getJeopardyAnswer($question: String) {
             nearText: {
                 concepts: [$question]
             }
+            limit: 10
          ) {
             category
             air_date
@@ -17,5 +18,6 @@ query getJeopardyAnswer($question: String) {
                 certainty
             }
         }
+
     }
 }

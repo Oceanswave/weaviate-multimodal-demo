@@ -590,6 +590,8 @@ export type AggregateObjectsObj = {
   __typename?: "AggregateObjectsObj";
   JeopardyQuestion?: Maybe<Array<Maybe<AggregateJeopardyQuestion>>>;
   MultiModal?: Maybe<Array<Maybe<AggregateMultiModal>>>;
+  /** The main class */
+  OpenAIDocument?: Maybe<Array<Maybe<AggregateOpenAiDocument>>>;
 };
 
 /** An object allowing Aggregation of %ss on a local Weaviate */
@@ -617,6 +619,378 @@ export type AggregateObjectsObjMultiModalArgs = {
   nearVector?: InputMaybe<AggregateObjectsMultiModalNearVectorInpObj>;
   objectLimit?: InputMaybe<Scalars["Int"]>;
   where?: InputMaybe<AggregateObjectsMultiModalWhereInpObj>;
+};
+
+/** An object allowing Aggregation of %ss on a local Weaviate */
+export type AggregateObjectsObjOpenAiDocumentArgs = {
+  ask?: InputMaybe<QnATransformersAggregateOpenAiDocumentAskInpObj>;
+  groupBy?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  hybrid?: InputMaybe<AggregateObjectsOpenAiDocumentHybridInpObj>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  nearObject?: InputMaybe<AggregateObjectsOpenAiDocumentNearObjectInpObj>;
+  nearVector?: InputMaybe<AggregateObjectsOpenAiDocumentNearVectorInpObj>;
+  objectLimit?: InputMaybe<Scalars["Int"]>;
+  where?: InputMaybe<AggregateObjectsOpenAiDocumentWhereInpObj>;
+};
+
+/** Hybrid search */
+export type AggregateObjectsOpenAiDocumentHybridInpObj = {
+  /** Search weight */
+  alpha?: InputMaybe<Scalars["Float"]>;
+  /** Query string */
+  query?: InputMaybe<Scalars["String"]>;
+  /** Vector search */
+  vector?: InputMaybe<Array<InputMaybe<Scalars["Float"]>>>;
+};
+
+export type AggregateObjectsOpenAiDocumentNearObjectInpObj = {
+  /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
+  beacon?: InputMaybe<Scalars["String"]>;
+  /** Normalized Distance between the result item and the search vector. Normalized to be between 0 (identical vectors) and 1 (perfect opposite). */
+  certainty?: InputMaybe<Scalars["Float"]>;
+  /** The required degree of similarity between an object's characteristics and the provided filter values */
+  distance?: InputMaybe<Scalars["Float"]>;
+  /** Concept identifier in the uuid format */
+  id?: InputMaybe<Scalars["String"]>;
+};
+
+export type AggregateObjectsOpenAiDocumentNearVectorInpObj = {
+  /** Normalized Distance between the result item and the search vector. Normalized to be between 0 (identical vectors) and 1 (perfect opposite). */
+  certainty?: InputMaybe<Scalars["Float"]>;
+  /** The required degree of similarity between an object's characteristics and the provided filter values */
+  distance?: InputMaybe<Scalars["Float"]>;
+  /** Target vector to be used in kNN search */
+  vector: Array<InputMaybe<Scalars["Float"]>>;
+};
+
+export type AggregateObjectsOpenAiDocumentWhereGeoRangeDistanceInpObj = {
+  /** The maximum distance from the point specified geoCoordinates. */
+  max: Scalars["Float"];
+};
+
+export type AggregateObjectsOpenAiDocumentWhereGeoRangeGeoCoordinatesInpObj = {
+  /** The latitude (in decimal format) of the geoCoordinates to search around. */
+  latitude: Scalars["Float"];
+  /** The longitude (in decimal format) of the geoCoordinates to search around. */
+  longitude: Scalars["Float"];
+};
+
+export type AggregateObjectsOpenAiDocumentWhereGeoRangeInpObj = {
+  /** The distance from the point specified via geoCoordinates. */
+  distance: AggregateObjectsOpenAiDocumentWhereGeoRangeDistanceInpObj;
+  /** The geoCoordinates that form the center point of the search. */
+  geoCoordinates: AggregateObjectsOpenAiDocumentWhereGeoRangeGeoCoordinatesInpObj;
+};
+
+/** An object containing filter options for a local Get query, used to convert the result to the specified filters */
+export type AggregateObjectsOpenAiDocumentWhereInpObj = {
+  /** Contains the Operands that can be applied to a 'where' filter */
+  operands?: InputMaybe<
+    Array<InputMaybe<AggregateObjectsOpenAiDocumentWhereOperandsInpObj>>
+  >;
+  /** Contains the Operators that can be applied to a 'where' filter */
+  operator?: InputMaybe<AggregateObjectsOpenAiDocumentWhereOperatorEnum>;
+  /** Specify the path from the Objects fields to the property name (e.g. ['Things', 'City', 'population'] leads to the 'population' property of a 'City' object) */
+  path?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Specify a Boolean value that the target property will be compared to */
+  valueBoolean?: InputMaybe<Scalars["Boolean"]>;
+  /** Specify a String value that the target property will be compared to */
+  valueDate?: InputMaybe<Scalars["String"]>;
+  /** Specify both geo-coordinates (latitude and longitude as decimals) and a maximum distance from the described coordinates. The search will return any result which is located less than or equal to the specified maximum distance in km away from the specified point. */
+  valueGeoRange?: InputMaybe<AggregateObjectsOpenAiDocumentWhereGeoRangeInpObj>;
+  /** Specify an Integer value that the target property will be compared to */
+  valueInt?: InputMaybe<Scalars["Int"]>;
+  /** Specify a Float value that the target property will be compared to */
+  valueNumber?: InputMaybe<Scalars["Float"]>;
+  /** Specify a String value that the target property will be compared to */
+  valueString?: InputMaybe<Scalars["String"]>;
+  /** Specify a Text value that the target property will be compared to */
+  valueText?: InputMaybe<Scalars["String"]>;
+};
+
+/** An object containing the Operands that can be applied to a 'where' filter */
+export type AggregateObjectsOpenAiDocumentWhereOperandsInpObj = {
+  /** Contains the Operands that can be applied to a 'where' filter */
+  operands?: InputMaybe<
+    Array<InputMaybe<AggregateObjectsOpenAiDocumentWhereOperandsInpObj>>
+  >;
+  /** Contains the Operators that can be applied to a 'where' filter */
+  operator?: InputMaybe<AggregateObjectsOpenAiDocumentWhereOperatorEnum>;
+  /** Specify the path from the Objects fields to the property name (e.g. ['Things', 'City', 'population'] leads to the 'population' property of a 'City' object) */
+  path?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Specify a Boolean value that the target property will be compared to */
+  valueBoolean?: InputMaybe<Scalars["Boolean"]>;
+  /** Specify a String value that the target property will be compared to */
+  valueDate?: InputMaybe<Scalars["String"]>;
+  /** Specify both geo-coordinates (latitude and longitude as decimals) and a maximum distance from the described coordinates. The search will return any result which is located less than or equal to the specified maximum distance in km away from the specified point. */
+  valueGeoRange?: InputMaybe<AggregateObjectsOpenAiDocumentWhereGeoRangeInpObj>;
+  /** Specify an Integer value that the target property will be compared to */
+  valueInt?: InputMaybe<Scalars["Int"]>;
+  /** Specify a Float value that the target property will be compared to */
+  valueNumber?: InputMaybe<Scalars["Float"]>;
+  /** Specify a String value that the target property will be compared to */
+  valueString?: InputMaybe<Scalars["String"]>;
+  /** Specify a Text value that the target property will be compared to */
+  valueText?: InputMaybe<Scalars["String"]>;
+};
+
+/** An object containing the Operators that can be applied to a 'where' filter */
+export enum AggregateObjectsOpenAiDocumentWhereOperatorEnum {
+  And = "And",
+  Equal = "Equal",
+  GreaterThan = "GreaterThan",
+  GreaterThanEqual = "GreaterThanEqual",
+  IsNull = "IsNull",
+  LessThan = "LessThan",
+  LessThanEqual = "LessThanEqual",
+  Like = "Like",
+  Not = "Not",
+  NotEqual = "NotEqual",
+  Or = "Or",
+  WithinGeoRange = "WithinGeoRange",
+}
+
+/** The main class */
+export type AggregateOpenAiDocument = {
+  __typename?: "AggregateOpenAIDocument";
+  /** Aggregate this property"author" */
+  author?: Maybe<AggregateOpenAiDocumentauthorObj>;
+  /** Aggregate this property"chunk_id" */
+  chunk_id?: Maybe<AggregateOpenAiDocumentchunk_IdObj>;
+  /** Aggregate this property"created_at" */
+  created_at?: Maybe<AggregateOpenAiDocumentcreated_AtObj>;
+  /** Aggregate this property"document_id" */
+  document_id?: Maybe<AggregateOpenAiDocumentdocument_IdObj>;
+  /** Indicates the group of returned data */
+  groupedBy?: Maybe<AggregateOpenAiDocumentGroupedByObj>;
+  /** An object used to Get Meta information about Objects on a local Weaviate */
+  meta?: Maybe<AggregateOpenAiDocumentMetaObject>;
+  /** Aggregate this property"source" */
+  source?: Maybe<AggregateOpenAiDocumentsourceObj>;
+  /** Aggregate this property"source_id" */
+  source_id?: Maybe<AggregateOpenAiDocumentsource_IdObj>;
+  /** Aggregate this property"text" */
+  text?: Maybe<AggregateOpenAiDocumenttextObj>;
+  /** Aggregate this property"url" */
+  url?: Maybe<AggregateOpenAiDocumenturlObj>;
+};
+
+/** An object containing the path and value of the grouped property */
+export type AggregateOpenAiDocumentGroupedByObj = {
+  __typename?: "AggregateOpenAIDocumentGroupedByObj";
+  /** The path of the grouped property */
+  path?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  /** The value of the grouped property */
+  value?: Maybe<Scalars["String"]>;
+};
+
+export type AggregateOpenAiDocumentMetaObject = {
+  __typename?: "AggregateOpenAIDocumentMetaObject";
+  count?: Maybe<Scalars["Int"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateOpenAiDocumentauthorObj = {
+  __typename?: "AggregateOpenAIDocumentauthorObj";
+  /** The total amount of found instances for this property */
+  count?: Maybe<Scalars["Int"]>;
+  /** An object containing data about the most frequently occurring values for this property */
+  topOccurrences?: Maybe<
+    Array<Maybe<AggregateOpenAiDocumentauthorTopOccurrencesObj>>
+  >;
+  /** Aggregate on the total amount of found property values */
+  type?: Maybe<Scalars["String"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateOpenAiDocumentauthorObjTopOccurrencesArgs = {
+  limit?: InputMaybe<Scalars["Int"]>;
+};
+
+/** An object containing data about the most frequently occurring values for this property */
+export type AggregateOpenAiDocumentauthorTopOccurrencesObj = {
+  __typename?: "AggregateOpenAIDocumentauthorTopOccurrencesObj";
+  /** How often the most frequently occurring value for this property occurs */
+  occurs?: Maybe<Scalars["Int"]>;
+  /** The most frequently occurring value for this property */
+  value?: Maybe<Scalars["String"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateOpenAiDocumentchunk_IdObj = {
+  __typename?: "AggregateOpenAIDocumentchunk_idObj";
+  /** The total amount of found instances for this property */
+  count?: Maybe<Scalars["Int"]>;
+  /** An object containing data about the most frequently occurring values for this property */
+  topOccurrences?: Maybe<
+    Array<Maybe<AggregateOpenAiDocumentchunk_IdTopOccurrencesObj>>
+  >;
+  /** Aggregate on the total amount of found property values */
+  type?: Maybe<Scalars["String"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateOpenAiDocumentchunk_IdObjTopOccurrencesArgs = {
+  limit?: InputMaybe<Scalars["Int"]>;
+};
+
+/** An object containing data about the most frequently occurring values for this property */
+export type AggregateOpenAiDocumentchunk_IdTopOccurrencesObj = {
+  __typename?: "AggregateOpenAIDocumentchunk_idTopOccurrencesObj";
+  /** How often the most frequently occurring value for this property occurs */
+  occurs?: Maybe<Scalars["Int"]>;
+  /** The most frequently occurring value for this property */
+  value?: Maybe<Scalars["String"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateOpenAiDocumentcreated_AtObj = {
+  __typename?: "AggregateOpenAIDocumentcreated_atObj";
+  /** Aggregate on the total amount of found property values */
+  count?: Maybe<Scalars["Int"]>;
+  /** Aggregate on the maximum of numeric property values */
+  maximum?: Maybe<Scalars["String"]>;
+  /** Aggregate on the median of numeric property values */
+  median?: Maybe<Scalars["String"]>;
+  /** Aggregate on the minimum of numeric property values */
+  minimum?: Maybe<Scalars["String"]>;
+  /** Aggregate on the mode of numeric property values */
+  mode?: Maybe<Scalars["String"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateOpenAiDocumentdocument_IdObj = {
+  __typename?: "AggregateOpenAIDocumentdocument_idObj";
+  /** The total amount of found instances for this property */
+  count?: Maybe<Scalars["Int"]>;
+  /** An object containing data about the most frequently occurring values for this property */
+  topOccurrences?: Maybe<
+    Array<Maybe<AggregateOpenAiDocumentdocument_IdTopOccurrencesObj>>
+  >;
+  /** Aggregate on the total amount of found property values */
+  type?: Maybe<Scalars["String"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateOpenAiDocumentdocument_IdObjTopOccurrencesArgs = {
+  limit?: InputMaybe<Scalars["Int"]>;
+};
+
+/** An object containing data about the most frequently occurring values for this property */
+export type AggregateOpenAiDocumentdocument_IdTopOccurrencesObj = {
+  __typename?: "AggregateOpenAIDocumentdocument_idTopOccurrencesObj";
+  /** How often the most frequently occurring value for this property occurs */
+  occurs?: Maybe<Scalars["Int"]>;
+  /** The most frequently occurring value for this property */
+  value?: Maybe<Scalars["String"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateOpenAiDocumentsourceObj = {
+  __typename?: "AggregateOpenAIDocumentsourceObj";
+  /** The total amount of found instances for this property */
+  count?: Maybe<Scalars["Int"]>;
+  /** An object containing data about the most frequently occurring values for this property */
+  topOccurrences?: Maybe<
+    Array<Maybe<AggregateOpenAiDocumentsourceTopOccurrencesObj>>
+  >;
+  /** Aggregate on the total amount of found property values */
+  type?: Maybe<Scalars["String"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateOpenAiDocumentsourceObjTopOccurrencesArgs = {
+  limit?: InputMaybe<Scalars["Int"]>;
+};
+
+/** An object containing data about the most frequently occurring values for this property */
+export type AggregateOpenAiDocumentsourceTopOccurrencesObj = {
+  __typename?: "AggregateOpenAIDocumentsourceTopOccurrencesObj";
+  /** How often the most frequently occurring value for this property occurs */
+  occurs?: Maybe<Scalars["Int"]>;
+  /** The most frequently occurring value for this property */
+  value?: Maybe<Scalars["String"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateOpenAiDocumentsource_IdObj = {
+  __typename?: "AggregateOpenAIDocumentsource_idObj";
+  /** The total amount of found instances for this property */
+  count?: Maybe<Scalars["Int"]>;
+  /** An object containing data about the most frequently occurring values for this property */
+  topOccurrences?: Maybe<
+    Array<Maybe<AggregateOpenAiDocumentsource_IdTopOccurrencesObj>>
+  >;
+  /** Aggregate on the total amount of found property values */
+  type?: Maybe<Scalars["String"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateOpenAiDocumentsource_IdObjTopOccurrencesArgs = {
+  limit?: InputMaybe<Scalars["Int"]>;
+};
+
+/** An object containing data about the most frequently occurring values for this property */
+export type AggregateOpenAiDocumentsource_IdTopOccurrencesObj = {
+  __typename?: "AggregateOpenAIDocumentsource_idTopOccurrencesObj";
+  /** How often the most frequently occurring value for this property occurs */
+  occurs?: Maybe<Scalars["Int"]>;
+  /** The most frequently occurring value for this property */
+  value?: Maybe<Scalars["String"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateOpenAiDocumenttextObj = {
+  __typename?: "AggregateOpenAIDocumenttextObj";
+  /** The total amount of found instances for this property */
+  count?: Maybe<Scalars["Int"]>;
+  /** An object containing data about the most frequently occurring values for this property */
+  topOccurrences?: Maybe<
+    Array<Maybe<AggregateOpenAiDocumenttextTopOccurrencesObj>>
+  >;
+  /** Aggregate on the total amount of found property values */
+  type?: Maybe<Scalars["String"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateOpenAiDocumenttextObjTopOccurrencesArgs = {
+  limit?: InputMaybe<Scalars["Int"]>;
+};
+
+/** An object containing data about the most frequently occurring values for this property */
+export type AggregateOpenAiDocumenttextTopOccurrencesObj = {
+  __typename?: "AggregateOpenAIDocumenttextTopOccurrencesObj";
+  /** How often the most frequently occurring value for this property occurs */
+  occurs?: Maybe<Scalars["Int"]>;
+  /** The most frequently occurring value for this property */
+  value?: Maybe<Scalars["String"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateOpenAiDocumenturlObj = {
+  __typename?: "AggregateOpenAIDocumenturlObj";
+  /** The total amount of found instances for this property */
+  count?: Maybe<Scalars["Int"]>;
+  /** An object containing data about the most frequently occurring values for this property */
+  topOccurrences?: Maybe<
+    Array<Maybe<AggregateOpenAiDocumenturlTopOccurrencesObj>>
+  >;
+  /** Aggregate on the total amount of found property values */
+  type?: Maybe<Scalars["String"]>;
+};
+
+/** An object containing Aggregation information about this property */
+export type AggregateOpenAiDocumenturlObjTopOccurrencesArgs = {
+  limit?: InputMaybe<Scalars["Int"]>;
+};
+
+/** An object containing data about the most frequently occurring values for this property */
+export type AggregateOpenAiDocumenturlTopOccurrencesObj = {
+  __typename?: "AggregateOpenAIDocumenturlTopOccurrencesObj";
+  /** How often the most frequently occurring value for this property occurs */
+  occurs?: Maybe<Scalars["Int"]>;
+  /** The most frequently occurring value for this property */
+  value?: Maybe<Scalars["String"]>;
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
@@ -922,6 +1296,8 @@ export type GetObjectsObj = {
   __typename?: "GetObjectsObj";
   JeopardyQuestion?: Maybe<Array<Maybe<JeopardyQuestion>>>;
   MultiModal?: Maybe<Array<Maybe<MultiModal>>>;
+  /** The main class */
+  OpenAIDocument?: Maybe<Array<Maybe<OpenAiDocument>>>;
 };
 
 /** An object used to get %ss on a local Weaviate */
@@ -956,6 +1332,170 @@ export type GetObjectsObjMultiModalArgs = {
   sort?: InputMaybe<Array<InputMaybe<GetObjectsMultiModalSortInpObj>>>;
   where?: InputMaybe<GetObjectsMultiModalWhereInpObj>;
 };
+
+/** An object used to get %ss on a local Weaviate */
+export type GetObjectsObjOpenAiDocumentArgs = {
+  after?: InputMaybe<Scalars["String"]>;
+  ask?: InputMaybe<QnATransformersGetObjectsOpenAiDocumentAskInpObj>;
+  bm25?: InputMaybe<GetObjectsOpenAiDocumentHybridGetBm25InpObj>;
+  group?: InputMaybe<GetObjectsOpenAiDocumentGroupInpObj>;
+  hybrid?: InputMaybe<GetObjectsOpenAiDocumentHybridInpObj>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  nearObject?: InputMaybe<GetObjectsOpenAiDocumentNearObjectInpObj>;
+  nearVector?: InputMaybe<GetObjectsOpenAiDocumentNearVectorInpObj>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  sort?: InputMaybe<Array<InputMaybe<GetObjectsOpenAiDocumentSortInpObj>>>;
+  where?: InputMaybe<GetObjectsOpenAiDocumentWhereInpObj>;
+};
+
+/** An object containing filter options for a local Get query, used to convert the result to the specified filters */
+export type GetObjectsOpenAiDocumentGroupInpObj = {
+  /** The force to apply for a particular movements. Must be between 0 and 1 where 0 is equivalent to no movement and 1 is equivalent to largest movement possible */
+  force: Scalars["Float"];
+  type?: InputMaybe<GetObjectsOpenAiDocumentGroupInpObjTypeEnum>;
+};
+
+export enum GetObjectsOpenAiDocumentGroupInpObjTypeEnum {
+  Closest = "closest",
+  Merge = "merge",
+}
+
+export type GetObjectsOpenAiDocumentHybridGetBm25InpObj = {
+  /** The properties to search in */
+  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** The query to search for */
+  query?: InputMaybe<Scalars["String"]>;
+};
+
+/** Hybrid search */
+export type GetObjectsOpenAiDocumentHybridInpObj = {
+  /** Search weight */
+  alpha?: InputMaybe<Scalars["Float"]>;
+  /** Query string */
+  query?: InputMaybe<Scalars["String"]>;
+  /** Vector search */
+  vector?: InputMaybe<Array<InputMaybe<Scalars["Float"]>>>;
+};
+
+export type GetObjectsOpenAiDocumentNearObjectInpObj = {
+  /** Concept identifier in the beacon format, such as weaviate://<hostname>/<kind>/id */
+  beacon?: InputMaybe<Scalars["String"]>;
+  /** Normalized Distance between the result item and the search vector. Normalized to be between 0 (identical vectors) and 1 (perfect opposite). */
+  certainty?: InputMaybe<Scalars["Float"]>;
+  /** The required degree of similarity between an object's characteristics and the provided filter values */
+  distance?: InputMaybe<Scalars["Float"]>;
+  /** Concept identifier in the uuid format */
+  id?: InputMaybe<Scalars["String"]>;
+};
+
+export type GetObjectsOpenAiDocumentNearVectorInpObj = {
+  /** Normalized Distance between the result item and the search vector. Normalized to be between 0 (identical vectors) and 1 (perfect opposite). */
+  certainty?: InputMaybe<Scalars["Float"]>;
+  /** The required degree of similarity between an object's characteristics and the provided filter values */
+  distance?: InputMaybe<Scalars["Float"]>;
+  /** Target vector to be used in kNN search */
+  vector: Array<InputMaybe<Scalars["Float"]>>;
+};
+
+/** An object containing filter options for a local Get query, used to convert the result to the specified filters */
+export type GetObjectsOpenAiDocumentSortInpObj = {
+  /** Specify the sort order, either ascending (asc) which is default or descending (desc) */
+  order?: InputMaybe<GetObjectsOpenAiDocumentSortInpObjTypeEnum>;
+  /** Specify the path from the Objects fields to the property name (e.g. ['Get', 'City', 'population'] leads to the 'population' property of a 'City' object) */
+  path?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+};
+
+export enum GetObjectsOpenAiDocumentSortInpObjTypeEnum {
+  Asc = "asc",
+  Desc = "desc",
+}
+
+export type GetObjectsOpenAiDocumentWhereGeoRangeDistanceInpObj = {
+  /** The maximum distance from the point specified geoCoordinates. */
+  max: Scalars["Float"];
+};
+
+export type GetObjectsOpenAiDocumentWhereGeoRangeGeoCoordinatesInpObj = {
+  /** The latitude (in decimal format) of the geoCoordinates to search around. */
+  latitude: Scalars["Float"];
+  /** The longitude (in decimal format) of the geoCoordinates to search around. */
+  longitude: Scalars["Float"];
+};
+
+export type GetObjectsOpenAiDocumentWhereGeoRangeInpObj = {
+  /** The distance from the point specified via geoCoordinates. */
+  distance: GetObjectsOpenAiDocumentWhereGeoRangeDistanceInpObj;
+  /** The geoCoordinates that form the center point of the search. */
+  geoCoordinates: GetObjectsOpenAiDocumentWhereGeoRangeGeoCoordinatesInpObj;
+};
+
+/** An object containing filter options for a local Get query, used to convert the result to the specified filters */
+export type GetObjectsOpenAiDocumentWhereInpObj = {
+  /** Contains the Operands that can be applied to a 'where' filter */
+  operands?: InputMaybe<
+    Array<InputMaybe<GetObjectsOpenAiDocumentWhereOperandsInpObj>>
+  >;
+  /** Contains the Operators that can be applied to a 'where' filter */
+  operator?: InputMaybe<GetObjectsOpenAiDocumentWhereOperatorEnum>;
+  /** Specify the path from the Objects fields to the property name (e.g. ['Things', 'City', 'population'] leads to the 'population' property of a 'City' object) */
+  path?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Specify a Boolean value that the target property will be compared to */
+  valueBoolean?: InputMaybe<Scalars["Boolean"]>;
+  /** Specify a String value that the target property will be compared to */
+  valueDate?: InputMaybe<Scalars["String"]>;
+  /** Specify both geo-coordinates (latitude and longitude as decimals) and a maximum distance from the described coordinates. The search will return any result which is located less than or equal to the specified maximum distance in km away from the specified point. */
+  valueGeoRange?: InputMaybe<GetObjectsOpenAiDocumentWhereGeoRangeInpObj>;
+  /** Specify an Integer value that the target property will be compared to */
+  valueInt?: InputMaybe<Scalars["Int"]>;
+  /** Specify a Float value that the target property will be compared to */
+  valueNumber?: InputMaybe<Scalars["Float"]>;
+  /** Specify a String value that the target property will be compared to */
+  valueString?: InputMaybe<Scalars["String"]>;
+  /** Specify a Text value that the target property will be compared to */
+  valueText?: InputMaybe<Scalars["String"]>;
+};
+
+/** An object containing the Operands that can be applied to a 'where' filter */
+export type GetObjectsOpenAiDocumentWhereOperandsInpObj = {
+  /** Contains the Operands that can be applied to a 'where' filter */
+  operands?: InputMaybe<
+    Array<InputMaybe<GetObjectsOpenAiDocumentWhereOperandsInpObj>>
+  >;
+  /** Contains the Operators that can be applied to a 'where' filter */
+  operator?: InputMaybe<GetObjectsOpenAiDocumentWhereOperatorEnum>;
+  /** Specify the path from the Objects fields to the property name (e.g. ['Things', 'City', 'population'] leads to the 'population' property of a 'City' object) */
+  path?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Specify a Boolean value that the target property will be compared to */
+  valueBoolean?: InputMaybe<Scalars["Boolean"]>;
+  /** Specify a String value that the target property will be compared to */
+  valueDate?: InputMaybe<Scalars["String"]>;
+  /** Specify both geo-coordinates (latitude and longitude as decimals) and a maximum distance from the described coordinates. The search will return any result which is located less than or equal to the specified maximum distance in km away from the specified point. */
+  valueGeoRange?: InputMaybe<GetObjectsOpenAiDocumentWhereGeoRangeInpObj>;
+  /** Specify an Integer value that the target property will be compared to */
+  valueInt?: InputMaybe<Scalars["Int"]>;
+  /** Specify a Float value that the target property will be compared to */
+  valueNumber?: InputMaybe<Scalars["Float"]>;
+  /** Specify a String value that the target property will be compared to */
+  valueString?: InputMaybe<Scalars["String"]>;
+  /** Specify a Text value that the target property will be compared to */
+  valueText?: InputMaybe<Scalars["String"]>;
+};
+
+/** An object containing the Operators that can be applied to a 'where' filter */
+export enum GetObjectsOpenAiDocumentWhereOperatorEnum {
+  And = "And",
+  Equal = "Equal",
+  GreaterThan = "GreaterThan",
+  GreaterThanEqual = "GreaterThanEqual",
+  IsNull = "IsNull",
+  LessThan = "LessThan",
+  LessThanEqual = "LessThanEqual",
+  Like = "Like",
+  Not = "Not",
+  NotEqual = "NotEqual",
+  Or = "Or",
+  WithinGeoRange = "WithinGeoRange",
+}
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
 export type Img2VecImageAggregateMultiModalNearImageInpObj = {
@@ -1229,6 +1769,134 @@ export type MultiModalIndividualResultsArg = {
   prompt?: InputMaybe<Scalars["String"]>;
 };
 
+/** The main class */
+export type OpenAiDocument = {
+  __typename?: "OpenAIDocument";
+  _additional?: Maybe<OpenAiDocumentAdditional>;
+  /** Document author */
+  author?: Maybe<Scalars["String"]>;
+  /** The chunk id */
+  chunk_id?: Maybe<Scalars["String"]>;
+  /** Creation date of document */
+  created_at?: Maybe<Scalars["String"]>;
+  /** The document id */
+  document_id?: Maybe<Scalars["String"]>;
+  /** The source of the data */
+  source?: Maybe<Scalars["String"]>;
+  /** The source id */
+  source_id?: Maybe<Scalars["String"]>;
+  /** The chunk's text */
+  text?: Maybe<Scalars["String"]>;
+  /** The source url */
+  url?: Maybe<Scalars["String"]>;
+};
+
+export type OpenAiDocumentAdditional = {
+  __typename?: "OpenAIDocumentAdditional";
+  answer?: Maybe<OpenAiDocumentAdditionalAnswer>;
+  certainty?: Maybe<Scalars["Float"]>;
+  classification?: Maybe<OpenAiDocumentAdditionalClassification>;
+  creationTimeUnix?: Maybe<Scalars["String"]>;
+  distance?: Maybe<Scalars["Float"]>;
+  explainScore?: Maybe<Scalars["String"]>;
+  generate?: Maybe<OpenAiDocumentAdditionalGenerate>;
+  /** The UUID of a Object, assigned by its local Weaviate */
+  id?: Maybe<Scalars["String"]>;
+  lastUpdateTimeUnix?: Maybe<Scalars["String"]>;
+  score?: Maybe<Scalars["String"]>;
+  spellCheck?: Maybe<Array<Maybe<OpenAiDocumentAdditionalSpellCheck>>>;
+  summary?: Maybe<Array<Maybe<OpenAiDocumentAdditionalSummary>>>;
+  tokens?: Maybe<Array<Maybe<OpenAiDocumentAdditionalTokens>>>;
+  vector?: Maybe<Array<Maybe<Scalars["Float"]>>>;
+};
+
+export type OpenAiDocumentAdditionalGenerateArgs = {
+  groupedResult?: InputMaybe<OpenAiDocumentAllResultsArg>;
+  singleResult?: InputMaybe<OpenAiDocumentIndividualResultsArg>;
+};
+
+export type OpenAiDocumentAdditionalSummaryArgs = {
+  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+};
+
+export type OpenAiDocumentAdditionalTokensArgs = {
+  certainty?: InputMaybe<Scalars["Float"]>;
+  distance?: InputMaybe<Scalars["Float"]>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+};
+
+export type OpenAiDocumentAdditionalAnswer = {
+  __typename?: "OpenAIDocumentAdditionalAnswer";
+  certainty?: Maybe<Scalars["Float"]>;
+  distance?: Maybe<Scalars["Float"]>;
+  endPosition?: Maybe<Scalars["Int"]>;
+  hasAnswer?: Maybe<Scalars["Boolean"]>;
+  property?: Maybe<Scalars["String"]>;
+  result?: Maybe<Scalars["String"]>;
+  startPosition?: Maybe<Scalars["Int"]>;
+};
+
+export type OpenAiDocumentAdditionalClassification = {
+  __typename?: "OpenAIDocumentAdditionalClassification";
+  basedOn?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  classifiedFields?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  completed?: Maybe<Scalars["String"]>;
+  id?: Maybe<Scalars["String"]>;
+  scope?: Maybe<Array<Maybe<Scalars["String"]>>>;
+};
+
+export type OpenAiDocumentAdditionalGenerate = {
+  __typename?: "OpenAIDocumentAdditionalGenerate";
+  error?: Maybe<Scalars["String"]>;
+  groupedResult?: Maybe<Scalars["String"]>;
+  singleResult?: Maybe<Scalars["String"]>;
+};
+
+export type OpenAiDocumentAdditionalSpellCheck = {
+  __typename?: "OpenAIDocumentAdditionalSpellCheck";
+  changes?: Maybe<Array<Maybe<OpenAiDocumentAdditionalSpellCheckChanges>>>;
+  didYouMean?: Maybe<Scalars["String"]>;
+  location?: Maybe<Scalars["String"]>;
+  numberOfCorrections?: Maybe<Scalars["Int"]>;
+  originalText?: Maybe<Scalars["String"]>;
+};
+
+export type OpenAiDocumentAdditionalSpellCheckChanges = {
+  __typename?: "OpenAIDocumentAdditionalSpellCheckChanges";
+  corrected?: Maybe<Scalars["String"]>;
+  original?: Maybe<Scalars["String"]>;
+};
+
+export type OpenAiDocumentAdditionalSummary = {
+  __typename?: "OpenAIDocumentAdditionalSummary";
+  property?: Maybe<Scalars["String"]>;
+  result?: Maybe<Scalars["String"]>;
+};
+
+export type OpenAiDocumentAdditionalTokens = {
+  __typename?: "OpenAIDocumentAdditionalTokens";
+  certainty?: Maybe<Scalars["Float"]>;
+  distance?: Maybe<Scalars["Float"]>;
+  endPosition?: Maybe<Scalars["Int"]>;
+  entity?: Maybe<Scalars["String"]>;
+  property?: Maybe<Scalars["String"]>;
+  startPosition?: Maybe<Scalars["Int"]>;
+  word?: Maybe<Scalars["String"]>;
+};
+
+export type OpenAiDocumentAllResultsArg = {
+  /** Properties used for the generation */
+  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** task */
+  task?: InputMaybe<Scalars["String"]>;
+};
+
+export type OpenAiDocumentIndividualResultsArg = {
+  /** prompt */
+  prompt?: InputMaybe<Scalars["String"]>;
+};
+
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
 export type QnATransformersAggregateJeopardyQuestionAskInpObj = {
   /** Autocorrect input text values */
@@ -1262,6 +1930,22 @@ export type QnATransformersAggregateMultiModalAskInpObj = {
 };
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
+export type QnATransformersAggregateOpenAiDocumentAskInpObj = {
+  /** Autocorrect input text values */
+  autocorrect?: InputMaybe<Scalars["Boolean"]>;
+  /** Normalized Distance between the result item and the search vector. Normalized to be between 0 (identical vectors) and 1 (perfect opposite). */
+  certainty?: InputMaybe<Scalars["Float"]>;
+  /** The required degree of similarity between an object's characteristics and the provided filter values */
+  distance?: InputMaybe<Scalars["Float"]>;
+  /** Properties which contains text */
+  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Question to be answered */
+  question: Scalars["String"];
+  /** Arranges the results by certainty */
+  rerank?: InputMaybe<Scalars["Boolean"]>;
+};
+
+/** An object containing filter options for a local Get query, used to convert the result to the specified filters */
 export type QnATransformersGetObjectsJeopardyQuestionAskInpObj = {
   /** Autocorrect input text values */
   autocorrect?: InputMaybe<Scalars["Boolean"]>;
@@ -1279,6 +1963,22 @@ export type QnATransformersGetObjectsJeopardyQuestionAskInpObj = {
 
 /** An object containing filter options for a local Get query, used to convert the result to the specified filters */
 export type QnATransformersGetObjectsMultiModalAskInpObj = {
+  /** Autocorrect input text values */
+  autocorrect?: InputMaybe<Scalars["Boolean"]>;
+  /** Normalized Distance between the result item and the search vector. Normalized to be between 0 (identical vectors) and 1 (perfect opposite). */
+  certainty?: InputMaybe<Scalars["Float"]>;
+  /** The required degree of similarity between an object's characteristics and the provided filter values */
+  distance?: InputMaybe<Scalars["Float"]>;
+  /** Properties which contains text */
+  properties?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Question to be answered */
+  question: Scalars["String"];
+  /** Arranges the results by certainty */
+  rerank?: InputMaybe<Scalars["Boolean"]>;
+};
+
+/** An object containing filter options for a local Get query, used to convert the result to the specified filters */
+export type QnATransformersGetObjectsOpenAiDocumentAskInpObj = {
   /** Autocorrect input text values */
   autocorrect?: InputMaybe<Scalars["Boolean"]>;
   /** Normalized Distance between the result item and the search vector. Normalized to be between 0 (identical vectors) and 1 (perfect opposite). */
@@ -1603,7 +2303,7 @@ export type GetMultiModalTextQuery = {
 export const GetJeopardyAnswerDocument = `
     query getJeopardyAnswer($question: String) {
   Get {
-    JeopardyQuestion(nearText: {concepts: [$question]}) {
+    JeopardyQuestion(nearText: {concepts: [$question]}, limit: 10) {
       category
       air_date
       question
@@ -1642,7 +2342,7 @@ export const useGetJeopardyAnswerQuery = <
 export const GetMultiModalImageDocument = `
     query getMultiModalImage($image: String!) {
   Get {
-    MultiModal(nearImage: {image: $image}) {
+    MultiModal(nearImage: {image: $image}, limit: 5) {
       filename
       image
       _additional {
@@ -1674,7 +2374,7 @@ export const useGetMultiModalImageQuery = <
 export const GetMultiModalTextDocument = `
     query getMultiModalText($searchTerm: String) {
   Get {
-    MultiModal(nearText: {concepts: [$searchTerm]}) {
+    MultiModal(nearText: {concepts: [$searchTerm]}, limit: 5) {
       filename
       image
       _additional {
